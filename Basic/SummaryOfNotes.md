@@ -239,6 +239,9 @@
     类型和描述：
         布尔型：bool
             ... here ...
+            
+            
+            
         数字类型：
             整型 int 和 浮点型 float32，flost64。
             除此之外Golang还有基于架构的类型，例如：int，unit 和 uintptr等等。
