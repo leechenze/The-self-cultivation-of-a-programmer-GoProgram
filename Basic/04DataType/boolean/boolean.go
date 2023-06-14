@@ -1,0 +1,5 @@
+package boolean
+
+func BoolTypeHelloWorld() {
+
+}
