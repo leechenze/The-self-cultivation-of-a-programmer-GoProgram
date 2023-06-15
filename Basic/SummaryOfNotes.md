@@ -238,13 +238,11 @@
     
     类型和描述：
         布尔型：bool
-            ... here ...
-            
-            
-            
+            注意点：go中不能使用0或非0表示布尔值，在C和JS中是可以这样表示的。
         数字类型：
             整型 int 和 浮点型 float32，flost64。
             除此之外Golang还有基于架构的类型，例如：int，unit 和 uintptr等等。
+            
         字符串类型：string
             Go语言的字符串的字节使用 UTF-8编码标识Unicode文本。
         派生类型：
