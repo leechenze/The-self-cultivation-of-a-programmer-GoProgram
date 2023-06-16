@@ -268,9 +268,83 @@
 
 
 
-伍.运算符&流程控制(OperatorsAndProcessControl)
-    
-    
+伍.运算符&流程控制(05OperatorsAndProcessControl)
+
+    加减乘除：
+        a := 100
+        b := 20
+        println("(a + b)", (a + b))
+        println("(a - b)", (a - b))
+        println("(a * b)", (a * b))
+        println("(a / b)", (a / b))
+        println("(a % b)", (a % b))
+
+    注意：++（自增）和 --（自减）在go语言中是单独的语句，并不是运算符。
+        如下会报错：
+            c := 1
+            d := c++
+        如下则可以，只要不参与运算：
+            c := 1
+            c++
+    关系运算符：
+        println("(a > b)",(a > b))
+        println("(a < b)",(a < b))
+        println("(a >= b)",(a >= b))
+        println("(a <= b)",(a <= b))
+        println("(a == b)",(a == b))
+        println("(a != b)",(a != b))
+    逻辑运算符：
+        d:=true
+        e:=false
+        println((d && e))
+        println((d || e))
+        println((!d))
+        println((!e))
+    位运算符：
+        f:=4 // 二进制 100
+        fmt.Printf("a: %b\n", f)
+        g:=8 // 二进制 1000
+        fmt.Printf("a: %b\n", g)
+        fmt.Printf("(f & g): %v %b \n",(f&g),(f&g))
+        fmt.Printf("(f | g): %v %b \n",(f|g),(f|g))
+        fmt.Printf("(f ^ g): %v %b \n",(f^g),(f^g))
+        fmt.Printf("(f << g): %v %b \n",(f<<g),(f<<g))
+        fmt.Printf("(f >> g): %v %b \n",(f>>g),(f>>g))
+    赋值运算符：
+        h:=100
+        h = 200
+        println("h",h)
+        h += 1
+        println("h += 1",h)
+        h -= 1
+        println("h -= 1",h)
+        h *= 1
+        println("h *= 1",h)
+        h /= 1
+        println("h /= 1",h)
+    流程控制：
+        ... here ...
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
