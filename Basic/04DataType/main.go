@@ -3,6 +3,7 @@ package main
 import (
 	"dataType/basicType"
 	"dataType/boolean"
+	"dataType/formatOutput"
 	"dataType/numberType"
 	"dataType/stringType"
 )
@@ -16,5 +17,6 @@ func main() {
 	numberType.NumberType()
 	// 字符串
 	stringType.StringType()
-
+	// 格式化输出
+	formatOutput.FormatOutput()
 }
