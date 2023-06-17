@@ -323,8 +323,32 @@
         h /= 1
         println("h /= 1",h)
     流程控制：
-        ... here ...
-        
+        go语言中只for 和 for range循环，去除了while，do while。
+            1。for循环
+                for i := 0; i < 10; i++ {
+                    println(i)
+                }
+            2。for range循环
+                x := [...]string{"lincoln", "trump", "obama"}
+                for ind, val := range x {
+                    println(ind, val)
+                }
+        初始变量可以声明在布尔表达式里面，但是作用域只在当年if else的花括号之内。
+            if age := 20; age > 18 {
+                println(age)
+            } else {
+                println("18")
+            }
+        不能使用0或非0表示真假，如下是错误示例：
+            a := 100
+            if a {
+                println(a)
+            }
+    流程关键字：
+        break：单独在switch中使用break和不使用没有什么区别，它在switch中是默认项。
+        continue：在go中只能用在for循环中，意义和其他语言相同，终止本地循环，进行下次循环。break是终止循环，continue只是跳出一次循环。
+        fallthrough：和break情况正好相反，如果想在switch中执行多个case条件，就在每个case中添加这个关键字。
+        goto：可以跳出双层循环和多层循环，break只能跳出当前循环。同时和break相同都能跳转到指定标签（这就是跳出多层循环的原理,通过goto指定标签跳转多层循环）
 
 
 
@@ -336,9 +360,16 @@
 
 
 
-
-
-
+陆.数组&切片(06ArrayAndSlice)
+    
+    数组
+        go数组一旦定义数组长度就不可修改
+        详见：array/array.go
+    切片
+        切片就是一个可变长度的数组，它底层就是使用数组实现的，增加了自动扩容的功能。
+        详见：slice/slice.go
+        切片初始化
+            ... here ...
 
 
 
