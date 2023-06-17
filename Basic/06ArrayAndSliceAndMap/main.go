@@ -1,8 +1,9 @@
 package main
 
 import (
-	"arrayAndSlice/array"
-	"arrayAndSlice/slice"
+	"arrayAndSliceAndMap/array"
+	"arrayAndSliceAndMap/gomap"
+	"arrayAndSliceAndMap/slice"
 )
 
 func main() {
@@ -11,5 +12,7 @@ func main() {
 	array.Array()
 	// 切片
 	slice.Slice()
+	// map
+	gomap.GoMap()
 
 }
