@@ -442,27 +442,60 @@
     闭包
         闭包是将函数内部和函数外部连接起来的桥梁，闭包就是一个函数内部有另外一个函数并将其作为结果返回
         
+    递归
+        递归实现5的阶乘，正确结果为120
+            func fiveFactorial(a int) int {
+                if a == 1 {
+                    return 1
+                } else {
+                    return a * fiveFactorial(a-1)
+                }
+            }
+    defer
+        defer关键字会将后续的语句执行逆序处理，也就是说同一个作用域下，最先被defer定义的最后被执行，最后被defer定义的先执行。
+        没有被defer定义的都正常执行
+    
+    init函数
+        go中又一个特殊的函数 init函数，先于main函数执行，实现包级别的一些初始化操作
+        init特点：
+            init函数先与main自动执行，且和main一样是主函数，不能被其他函数调用
+            init函数没有参数和返回值
+            每个包可以有多个init函数
+            包的每个源文件也可以有多个init函数
+            不同包的init函数按照包导入的依赖关系决定执行顺序的
+        初始化顺序：
+            初始化变量 > init > main
+            详见：initFunc/initFunc.go
+
+
+
+
+
+
+
+
+捌.指针&结构体(08PointerAndStruct)
+    
+    ... here ...
+
+
+
         
         
         
 
 
+
+
+        
+        
+        
+        
+        
 
 
 
 零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
