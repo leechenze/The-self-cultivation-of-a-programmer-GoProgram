@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	println("========================Array And Slice========================")
+	println("========================Array And Slice And Map========================")
 	// 数组
 	array.Array()
 	// 切片
