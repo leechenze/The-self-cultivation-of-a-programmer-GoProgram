@@ -503,8 +503,22 @@
         go语言中没有面向对象和类的概念了，取而代之的是C语言中的结构体，通过结构体来描述一些类特性：继承，多态，封装，组合等。
         结构体也要用type关键字来定义。
         
+    结构体作为函数参数
+        结构体作为函数参数（值传递，并不会改变外部Person的值。）
+            func changePerson(person Person) {
+                person.id = 105
+                person.name = "nixon"
+                fmt.Printf("nixon, %v\n", person)
+            }
         
-        
+        结构体作为函数参数（引用传递/指针传递，将会改变外部Person的值。）
+            func changeperson2(person *Person) {
+                person.id = 107
+                person.name = "nixon"
+                fmt.Printf("nixon, %v\n", person)
+            }
+    golang嵌套结构体
+    golang结构体中的方法
         
 
 

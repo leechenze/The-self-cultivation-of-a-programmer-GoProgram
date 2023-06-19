@@ -4,6 +4,7 @@ import (
 	"pointerAndStruct/arrayPointer"
 	"pointerAndStruct/basicPointer"
 	"pointerAndStruct/structInit"
+	"pointerAndStruct/structMethod"
 	"pointerAndStruct/structPointer"
 )
 
@@ -17,5 +18,7 @@ func main() {
 	structPointer.StructPointer()
 	// 结构体
 	structInit.StructInit()
+	// 结构体方法
+	structMethod.StructMethod()
 
 }
