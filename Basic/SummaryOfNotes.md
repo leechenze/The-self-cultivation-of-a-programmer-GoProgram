@@ -586,15 +586,16 @@
 
 
 
-拾壹.包(11package)
+拾壹.包(11packet)
 
     包用以区分命令空间（一个文件夹中不能有两个同名的包），所以可以更好的管理项目
-    go中使用package关键字声明包，通常文件夹名称和包名称相同，并且同一个文件下只有一个包。
+    go中使用 package 关键字声明包，通常文件夹名称和包名称相同，并且同一个文件下只有一个包。
     包管理工具：go modules
         go modules是golang 1.11 版本新加的特性，用来管理模块中包的依赖关系
         使用方法：
             初始化模块：
                 go mod init <项目模块名称>
+                项目模块名称 一般规则是 域名+项目名
             依赖关系处理，根据go.mod文件
                 go mod tidy
             将依赖包复制到项目下的vendor目录
@@ -605,11 +606,91 @@
             下载依赖
                 go mod download [path@version]
                 [path@version]是非必写的
+    远程包引用：
+        https://go.dev/
+            进入导航栏package
+        这里就以gin框架为例进行演示：（详细步骤会在官网中有）
+            安装Gin
+                go get -u github.com/gin-gonic/gin
+            下载Gin程序所需要的依赖：
+                将一下代码片段放到main程序中。
+                    // gin application
+                    r := gin.Default()
+                    r.GET("/ping", func(c *gin.Context) {
+                        c.JSON(http.StatusOK, gin.H{
+                            "message": "pong",
+                        })
+                    })
+                    r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+                导入Gin包（"github.com/gin-gonic/gin"）
+                最后执行 tidy 以下载gin程序执行所需要的依赖：（tidy后编辑器中的错误会自动消失）
+                    go mod tidy
+
+
+
+
+
+
+
+
+
+
+
+
+拾贰.并发编程(12ConcurrentProgramming)
+
+    协程：（goroutines）
+        golang中的并发是函数相互独立运行的能力，goroutines是并发运行的函数，Golang提供了Goroutines作为并发处理操作的一种方式。
+        创建一个协程非常简单，就是在一个任务函数前添加一个go关键字。
+
+    通道：（goChannel）
+        go提供了一种称为通道（channel）的机制，用于协程之间（goroutines）共享数据，当作为goroutines执行并发活动时，需要在goroutines之间共享资源或数据
+        通道充当了goroutines之间的管道，并提供了一种机制来保证同步交换
+        根据数据交换行为，通道会分为两种类型：
+            无缓冲通道和缓冲通道。
+            无缓冲通道用于执行goroutines之间的同步通信，而缓冲通道用于执行异步通信。
+            无缓冲通道保证在发送和接收的瞬间执行两个goroutines之间的交换，缓冲通道没有这样的保证。
+        通道的发送和接收特性：
+            对于同一个通道，发送操作之间是互斥的，接收操作之间也是互斥的。
+            发送和接收的操作对元素值的处理都是不可分割的
+            发送操作在完全完成之前会被阻塞，接收操作也是如此。（即加锁，放置其他的协程切入）
+        语法：
+            通道声明：
+                var gochannel = make(chan int)
+            通道发送：
+                gochannel <- value
+            通道接收：
+                value := <-gochannel
     
-            
+    WaitGroup同步：（goWaitGroup）
+        WaitGroup在golang中用于线程同步。
+        语法：
+            WaitGroup声明：
+                var wg sync.WaitGroup
+            开启一个要等待的子协程：（进入当前子协程的同步等待）
+                在 go 协程关键字的上下声明都可以
+                    wg.Add(1)
+                    go showMsg(i)
+            关闭一个要等待的子协程：（退出当前子协程的同步等待）
+                wg.Done() // or wg.Add(-1)
+            执行等待：
+                在需要阻塞执行的地方很执行
+                    wg.Wait()
         
-    
-    
+    RunTime：
+        runtime里面定义了一些协程管理相关的API。
+        ... TODO ...
+        
+
+
+
+
+
+
+
+
+
+
 
 
 
