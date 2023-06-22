@@ -1,6 +1,8 @@
 package basicInterface
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 定义接口
 type USB interface {
@@ -62,6 +64,48 @@ func (cat *Cat) eat(food string) string {
 	return cat.name + "吃" + food
 }
 
+/** 接口和类型的关系 */
+// 一个类型实现多个接口
+
+// 定义音频的接口
+type Audioer interface {
+	playMusic()
+}
+
+// 定义视频的接口
+type Videoer interface {
+	playVideo()
+}
+
+// 定义手机的结构体
+type MPhone struct {
+}
+
+func (mobile MPhone) playMusic() {
+	println("play music")
+}
+
+func (mobile MPhone) playVideo() {
+	println("play video")
+}
+
+// 多个类型实现同一个接口
+type Peter1 interface {
+	eat()
+}
+
+type Dog1 struct {
+}
+type Cat1 struct {
+}
+
+func (dog1 Dog1) eat() {
+	println("dog1 eat")
+}
+func (cat1 Cat1) eat() {
+	println("cat1 eat")
+}
+
 func BasicInterface() {
 	println("========================Interface========================")
 	println()
@@ -97,9 +141,18 @@ func BasicInterface() {
 	fmt.Printf("cat, %v\n", cat)
 
 	// 接口和类型的关系
+	// 一个类型实现多个接口
 	println()
 	println("接口和类型的关系")
-	// TODO
+	m1 := MPhone{}
+	m1.playVideo()
+	m1.playMusic()
+	// 多个类型实现同一个接口
+	var pet1 Peter1
+	pet1 = Dog1{}
+	pet1.eat()
+	pet1 = Cat1{}
+	pet1.eat()
 
 	println()
 	println("========================Interface========================")
