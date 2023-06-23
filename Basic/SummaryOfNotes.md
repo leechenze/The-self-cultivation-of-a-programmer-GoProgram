@@ -687,6 +687,7 @@
                 设置最大的CPU核心数
             NumCPU：
                 查看CPU的核心数
+    
     Mutex互斥锁同步：（goMutex）
         语法：
             声明Metux锁：
@@ -713,7 +714,37 @@
     
     Timer：（goTimer）
         timer顾名思义就是定时器的意思，可以实现一些定时操作，内部是通过channel实现的。
-        ... TODO ...
+        
+    Ticker：（goTicker）
+        timer只执行一次，ticker可以周期的执行。
+        
+    原子操作：（goAtomic）
+        atomic提供的原子操作能够确保任意时刻只有一个goroutines对变量进行操作，善用atomic能够避免程序中出现大量的锁操作。
+        atomic常见的操作有：
+            增减
+            载入
+            存储
+            比较并交换cas
+            交换
+
+
+
+
+
+
+
+
+
+
+拾叁.标准库OS（13OSLibrary）
+    
+    ... TODO ...
+    
+
+
+
+
+
 
 
 

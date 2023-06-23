@@ -1,6 +1,6 @@
 package main
 
-import "concurrentProgramming/goTimer"
+import "concurrentProgramming/goAtomic"
 
 func main() {
 	println("========================Concurrent Programming========================")
@@ -19,6 +19,10 @@ func main() {
 	// 并发编程之Select
 	// goSelect.GoSelect()
 	// 并发编程之Timer
-	goTimer.GoTimer()
+	// goTimer.GoTimer()
+	// 并发编程之Ticker
+	// goTicker.GoTicker()
+	// 并发编程之atomic原子操作
+	goAtomic.GoAtomic()
 
 }
