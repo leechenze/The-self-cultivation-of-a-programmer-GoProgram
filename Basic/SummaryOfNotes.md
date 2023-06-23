@@ -677,16 +677,43 @@
                 在需要阻塞执行的地方很执行
                     wg.Wait()
         
-    RunTime：
+    RunTime：(goRunTime)
         runtime里面定义了一些协程管理相关的API。
+            GoSched：
+                让出CPU时间片，重新等待安排任务（让其他协程先运行）
+            Goexit:
+                退出协程
+            GOMAXPROCS：
+                设置最大的CPU核心数
+            NumCPU：
+                查看CPU的核心数
+    Mutex互斥锁同步：（goMutex）
+        语法：
+            声明Metux锁：
+                var lock sync.Mutex
+            加锁：
+                lock.Lock()
+            解锁：
+                lock.Unlock()
+        解释：
+            加锁和解锁放在要执行的协程中，在锁之间的程序会被锁定，其他协程不会此段程序执行完之前切进来执行。
+
+    通道遍历：（goChanIterate）
+        在通道完成之后一定要调用 close(chan) 关闭通道，否则就会产生死锁的问题而报错
+    
+    Select：（goSelect）
+        select是go中的一个控制结构，类似于switch语句，用于处理异步IO操作。select会监听case语句中channel的读写操作
+        当case中的channel读写操作为非阻塞状态（能读写）时，将会触发相应的动作。
+        注意：
+            select中的case语句必须是一个channel操作。
+            select中的default子句总是可运行的。
+        如果有多个case都可以运行，select会随机选择一个case执行，其他不会执行。
+        如果没有可运行的case语句，且有default语句时，就执行default的动作
+        如果没有可运行的case语句，且没有default语句时，select将被阻塞，直到某个case通信可以运行。
+    
+    Timer：（goTimer）
+        timer顾名思义就是定时器的意思，可以实现一些定时操作，内部是通过channel实现的。
         ... TODO ...
-        
-
-
-
-
-
-
 
 
 
