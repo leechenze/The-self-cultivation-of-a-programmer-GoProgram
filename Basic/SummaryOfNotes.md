@@ -738,7 +738,14 @@
 
 拾叁.标准库OS（13OSLibrary）
     
-    ... TODO ...
+    OS标准库实现了平台（操作系统）相关的接口
+    Go源码库帮助文档：https://pkg.go.dev/std
+    
+    文件相关操作：
+        详见：goFileDir
+    进程相关操作：
+        详见：goProce
+        
     
 
 
