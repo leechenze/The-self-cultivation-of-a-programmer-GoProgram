@@ -745,10 +745,18 @@
         详见：goFileDir
     进程相关操作：
         详见：goProce
+    环境变量相关操作：
+        详见：goEnviron
+    IO相关操作：
+        详见：goIO
+        go语言中，为了方便开发者使用，将IO操作封装在了如下几个包中：
+            IO 为 IO原语（io/primitives），提供基本的接口
+            io/ioutil 封装了一些实用的IO函数
+            bufio 实现带缓冲的IO
+        在IO中最重要的两个接口：Reader和Writer接口，只要实现了这两个接口，他就有了IO的功能。
+    Log库的相关操作：
+        ... TODO ...
         
-    
-
-
 
 
 
