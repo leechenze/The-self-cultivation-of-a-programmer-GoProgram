@@ -1,6 +1,6 @@
 package main
 
-import "osLibrary/goLog"
+import "osLibrary/goBytes"
 
 func main() {
 	println("========================OS Library========================")
@@ -13,5 +13,10 @@ func main() {
 	// IO相关操作
 	// goIO.GoIO()
 	// Log库的相关操作
-	goLog.GoLog()
+	// goLog.GoLog()
+	// builtin库相关操作
+	// goBuiltin.GoBuiltin()
+	// bytes库相关操作
+	goBytes.GoBytes()
+
 }

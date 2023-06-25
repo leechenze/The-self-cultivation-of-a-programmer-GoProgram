@@ -1,0 +1,13 @@
+customPrefix: 2023/06/25 22:40:37 goLog.go:54: log after setFlags
+customPrefix: 2023/06/25 22:40:51 goLog.go:54: log after setFlags
+customPrefix: 2023/06/25 22:41:19 goLog.go:54: log after setFlags
+customPrefix: 2023/06/25 22:41:32 goLog.go:54: log after setFlags
+customPrefix: 2023/06/25 22:45:41 goLog.go:56: 自定义logger输出
+customPrefix: 2023/06/25 22:45:41 goLog.go:59: log after setFlags
+customPrefix: 2023/06/25 22:46:38 goLog.go:55: 自定义logger输出
+customPrefix: 2023/06/25 22:47:51 goLog.go:56: 自定义logger输出
+customPrefix: 2023/06/25 22:47:51 goLog.go:59: log after setFlags
+customPrefix: 2023/06/25 22:47:53 goLog.go:56: 自定义logger输出
+customPrefix: 2023/06/25 22:47:53 goLog.go:59: log after setFlags
+customPrefix: 2023/06/25 22:48:44 goLog.go:56: 自定义logger输出
+customPrefix: 2023/06/25 22:48:44 goLog.go:58: log after setFlags

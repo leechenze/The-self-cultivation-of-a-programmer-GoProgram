@@ -360,7 +360,7 @@
 
 
 
-陆.数组&切片(06ArrayAndSliceAndMap)
+陆.数组&切片&字典(06ArrayAndSliceAndMap)
     
     数组
         go数组一旦定义数组长度就不可修改
@@ -755,10 +755,19 @@
             bufio 实现带缓冲的IO
         在IO中最重要的两个接口：Reader和Writer接口，只要实现了这两个接口，他就有了IO的功能。
     Log库的相关操作：
+        golang中内置了log包，实现了简单的日志服务，可以实现简单的日子打印功能。
+            print：打印日志
+            panic：打印日志并抛出panic异常
+            fatal：打印日志并强制结束程序（os.Exit(1)），defer函数不会执行
+    builtin库相关操作：
+        这个包提供了一些类型声明，变量和常量的声明，还有一些便利函数，这个包不需要导入，这些变量和函数可以直接使用
+        重要的两个函数，new 和 make的区别：
+            make只能用来分配及初始化类型为slice，map，chan的数据；new可以分配任意类型的数据
+            make分配返回的是引用，即 T；new分配返回的是指针，即类型 *T
+            new分配的空间被清零；make分配后，会进行初始化
+    bytes库相关操作：
         ... TODO ...
         
-
-
 
 
 
