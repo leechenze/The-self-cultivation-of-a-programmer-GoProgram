@@ -1,6 +1,6 @@
 package main
 
-import "osLibrary/goBytes"
+import "osLibrary/goErrors"
 
 func main() {
 	println("========================OS Library========================")
@@ -17,6 +17,8 @@ func main() {
 	// builtin库相关操作
 	// goBuiltin.GoBuiltin()
 	// bytes库相关操作
-	goBytes.GoBytes()
+	// goBytes.GoBytes()
+	// errors库相关操作
+	goErrors.GoErrors()
 
 }
