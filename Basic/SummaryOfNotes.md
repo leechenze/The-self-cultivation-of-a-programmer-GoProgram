@@ -767,11 +767,29 @@
             new分配的空间被清零；make分配后，会进行初始化
     bytes库相关操作：
         bytes包提供了对字节切片进行读写操作的一些列函数，字节切片处理的函数可以分为：基本处理函数，比较函数，后缀检查函数，索引函数，分隔函数，大小写处理函数和子切片处理函数等。
+        详见：goBytes
     errors库相关操作：
+        errors包实现了错误操作的函数，语言使用error类型返回函数执行过程中遇到的错误，如果返回的 error 值为nil，则表示未遇到错误，否则error会返回一个字符串，用于说明遇到了什么错误。
+        详见：goErrors
+    sort库相关操作：
+        sort包提供了排序切片和用户自定义数据集以及相关功能的一些函数。
+        sort包主要是针对 []int, []float64, []string，以及其他自定义切片的排序。
+        sort库的三个主要方法实现：
+            Len: 返回集合元素长度
+                func (n NewInts) Len() int {
+                    return len(n)
+                }
+            Swap: 交换 i 和 j 的值
+                func (n NewInts) Swap(i, j int) {
+                    n[i], n[j] = n[j], n[i]
+                }
+            Less: 返回索引i的元素是否比索引j的元素小
+                func (n NewInts) Less(i, j int) bool {
+                    return n[i] < n[j]
+                }
+        详见：goSort
+    time库相关操作：
         ... TODO ...
-
-        
-        
 
 
 

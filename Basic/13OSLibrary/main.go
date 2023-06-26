@@ -1,6 +1,6 @@
 package main
 
-import "osLibrary/goErrors"
+import "osLibrary/goTime"
 
 func main() {
 	println("========================OS Library========================")
@@ -19,6 +19,10 @@ func main() {
 	// bytes库相关操作
 	// goBytes.GoBytes()
 	// errors库相关操作
-	goErrors.GoErrors()
+	// goErrors.GoErrors()
+	// sort库相关操作
+	// goSort.GoSort()
+	// time库相关操作
+	goTime.GoTime()
 
 }
