@@ -1,6 +1,6 @@
 package main
 
-import "osLibrary/goTime"
+import "osLibrary/goXML"
 
 func main() {
 	println("========================OS Library========================")
@@ -23,6 +23,10 @@ func main() {
 	// sort库相关操作
 	// goSort.GoSort()
 	// time库相关操作
-	goTime.GoTime()
+	// goTime.GoTime()
+	// json库相关操作
+	// goJson.GoJson()
+	// xml库相关操作
+	goXML.GoXML()
 
 }

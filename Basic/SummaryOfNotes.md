@@ -789,9 +789,22 @@
                 }
         详见：goSort
     time库相关操作：
+        time包提供测量和显示时间的功能
+        Golang中的格式化时间模版不是 y-m-d H:M:S 而是使用Go的诞生时间2006年1月2号15点04分 为模版的（即 2006 1 2 3 4）
+    json库相关操作：
+        这个包用以转换JSON的编码和解码，就是将JSON字符串转换为struct，或者将struct转换为JSON。
+        核心的两个函数：
+            func Marshal(v interface{}) ([]byte, error)
+                将struct编码为json，可以接收任意类型
+            func Unmarshal(data []byte, v interface{}) error
+                将json转码成struct结构体。
+        核心的两个结构体：
+            type Encoder struct {}
+                从输入流读取并解析json
+            type Decoder struct {}
+                写json到输出流
+    xml库相关操作：
         ... TODO ...
-
-
 
 
 

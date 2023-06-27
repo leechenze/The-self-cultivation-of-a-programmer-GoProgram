@@ -1,0 +1,9 @@
+{
+  "Name": "clinton",
+  "Age": 50,
+  "Email": "tom@gmail.com",
+  "Parent": [
+    "big Clinton",
+    "big Hillary"
+  ]
+}
