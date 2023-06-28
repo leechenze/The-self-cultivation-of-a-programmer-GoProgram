@@ -1,6 +1,6 @@
 package main
 
-import "osLibrary/goXML"
+import "osLibrary/goMath"
 
 func main() {
 	println("========================OS Library========================")
@@ -27,6 +27,8 @@ func main() {
 	// json库相关操作
 	// goJson.GoJson()
 	// xml库相关操作
-	goXML.GoXML()
+	// goXML.GoXML()
+	// math库相关操作
+	goMath.GoMath()
 
 }

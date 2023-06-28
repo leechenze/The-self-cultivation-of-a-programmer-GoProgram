@@ -804,7 +804,10 @@
             type Decoder struct {}
                 写json到输出流
     xml库相关操作：
+        用以xml的解析，两个核心函数和核心结构体和Json包一样。
+    math库相关操作：
         ... TODO ...
+        
 
 
 
