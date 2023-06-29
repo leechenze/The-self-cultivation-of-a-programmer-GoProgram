@@ -821,10 +821,45 @@
 
 拾肆.MySql数据库（14MySqlDataBase）
     
-    ... TODO ...
+    安装步骤请自行CSDN，这里不在详述。
+    也可使用 Navicat Premium 操作，这里就用命令行操作了。
+    命令行操作：
+        mysql -u root -p
+            输入你的mysql密码
 
+        create database go_db;
 
+        show databases;
 
+        use go_db;
+        
+        创建表：
+            CREATE TABLE user_tbl (
+                id INTEGER PRIMARY KEY AUTO_INCREMENT,
+                username VARCHAR (20),
+                password VARCHAR (20)
+            );
+        
+        添加模拟数据：
+            INSERT INTO user_tbl (username, password) VALUES ("tom",123)
+            INSERT INTO user_tbl (username, password) VALUES ("kite",456)
+        
+        查询数据确保成功：
+            SELECT * FROM user_tbl
+
+    数据库连接与初始化：
+        详见：goInitialDataBase/initialDataBase.go
+
+    插入操作：(dataBaseActionFunc/insert.go)
+        插入，更新和删除都使用 Exec 方法
+
+    查询操作：(dataBaseActionFunc/query.go)
+        单行查询：db.QueryRow() 执行一次查询，并返回最多一行结果，QueryRow返回总是非 nil 的值，知道返回值的 Scan 方法被调用时，才会返回延迟错误。
+        多条查询：db.Query() 执行一次查询，返回多行结果，一般用于执行 SELECT 命令。
+
+    更新操作：(dataBaseActionFunc/update.go)
+        ... TODO ...
+    
 
 
 
