@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"mysqldatabase/dataBaseActionFunc"
 	"mysqldatabase/goInitialDataBase"
 )
 
@@ -29,7 +28,12 @@ func main() {
 
 		// 更新数据
 		println()
-		defer dataBaseActionFunc.Update(db)
+		// defer dataBaseActionFunc.Update(db)
+
+		// 删除数据
+		println()
+		// dataBaseActionFunc.Delete(db)
+
 	}
 
 }

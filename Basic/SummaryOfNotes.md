@@ -822,7 +822,7 @@
 拾肆.MySql数据库（14MySqlDataBase）
     
     安装步骤请自行CSDN，这里不在详述。
-    也可使用 Navicat Premium 操作，这里就用命令行操作了。
+    也可使用 Navicat Premium 操作，这里就用命令行操作了，后续操作再使用数据库工具。
     命令行操作：
         mysql -u root -p
             输入你的mysql密码
@@ -858,8 +858,44 @@
         多条查询：db.Query() 执行一次查询，返回多行结果，一般用于执行 SELECT 命令。
 
     更新操作：(dataBaseActionFunc/update.go)
-        ... TODO ...
     
+    删除操作：(dataBaseActionFunc/delete.go)
+
+
+
+
+
+
+
+
+
+
+
+
+
+拾伍.MongoDB数据库（15MongoDataBase）
+
+    安装步骤请自行CSDN，这里不在详述。
+    也可使用 Navicat Premium 操作，这里就用命令行操作了。
+    
+    创建数据库：
+        use go_db;
+    创建集合：
+        db.createCollection("student");
+    go程序中下载驱动：
+        go get go.mongodb.org/mongo-driver/mongo
+    
+    ... TODO ...
+
+
+
+
+
+
+
+
+
+
 
 
 
