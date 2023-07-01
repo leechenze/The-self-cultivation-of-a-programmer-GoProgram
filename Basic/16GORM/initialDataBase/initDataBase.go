@@ -1,0 +1,5 @@
+package initialDataBase
+
+func InitDataBase() {
+
+}

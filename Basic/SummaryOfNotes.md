@@ -885,7 +885,31 @@
     go程序中下载驱动：
         go get go.mongodb.org/mongo-driver/mongo
     
-    ... TODO ...
+    初始连接数据库：
+        详见：initConnectFn.go
+    
+    MongoDB-Bson:
+        MongoDB中的Json文档存储在名为BSON（二进制编码的JSON）的二进制表示中，BSON编码扩展了JSON，使其包含了额外的类型，如int，long，date，浮点数等。
+        连接MongoDB的Go驱动程序中有两大类型表示BSON数据：D 和 Raw    
+            类型D用来简洁的构建BSON对象，D家族包括四类：    
+                D：一个BSON文档。    
+                M：一张无须的map，它和D是一样的，只是它不保持顺序    
+                A：一个BSON数组    
+                E：D里面的一个元素
+            Raw类型家族用于验证字节切片。
+        详见：bson.go
+        
+    添加文档：
+        insert.go
+    
+    查询文档：
+        query.go
+    
+    更新文档：
+        update.go
+    
+    删除文档：
+        delete.go
 
 
 
@@ -899,13 +923,20 @@
 
 
 
-
-
-
-
-
-
-
+拾陆.GORM(16GORM)
+    
+    ORM简介：
+        对象关系映射（Object Relational Mapping)，是一种为了解决面向对象与关系数据库互不匹配的想象的技术。
+        即：数据库中的表 和 编程语言的对象的一一对应的关系转换。
+    安装：
+        go get -u gorm.io/gorm
+        go get -u gorm.io/driver/sqlite
+    
+    gorm概述：
+        overview.go
+    
+    声明模型：
+        ... TODO ...
 
 
 
