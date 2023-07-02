@@ -928,15 +928,36 @@
     ORM简介：
         对象关系映射（Object Relational Mapping)，是一种为了解决面向对象与关系数据库互不匹配的想象的技术。
         即：数据库中的表 和 编程语言的对象的一一对应的关系转换。
+        然后GORM说白了就是类似于 Mybatis 的这种数据持久化框架。
     安装：
         go get -u gorm.io/gorm
         go get -u gorm.io/driver/sqlite
-    
+        
     gorm概述：
         overview.go
     
     声明模型：
-        ... TODO ...
+        declareModel.go
+        模型定义，模型是保准的struct，由Go的基本数据类型实现了Scanner和Valuer接口的自定义类型和其指针或别名组成
+    
+    连接数据库：
+        initDataBase.go
+    创建记录：
+        钩子函数/回调函数：
+            BeforeSave
+            BeforeCreate
+            AfterSave
+            AfterCreate
+        create.go
+        
+    查询记录：
+        query.go
+        GORM提供了First，Take，Last方法，以便从数据库中检索单个对象，在没有找到记录时，会返回RecordNotFound对象的错误
+    
+    更新记录：
+        update.go
+        
+    
 
 
 

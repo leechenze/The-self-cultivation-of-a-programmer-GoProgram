@@ -1,6 +1,9 @@
 package main
 
-import "gorm/goGORMActionFunc"
+import (
+	"fmt"
+	"gorm/goGORMActionFunc"
+)
 
 func main() {
 	println("========================GORM========================")
@@ -8,8 +11,22 @@ func main() {
 	// println()
 	// goGORMOverview.Overview()
 
-	// 声明模型：
+	// 连接数据库：
 	println()
-	goGORMActionFunc.DeclareModel()
+	db, err := goGORMActionFunc.InitDataBase()
+	if err != nil {
+		fmt.Printf("err: %v\n", err)
+	}
+
+	// 创建记录：
+	println()
+	// goGORMActionFunc.Create(db)
+
+	// 查询记录：
+	println()
+	// goGORMActionFunc.Query(db)
+
+	// 更新记录：
+	goGORMActionFunc.Update(db)
 
 }
