@@ -970,7 +970,10 @@
         
     关联关系：
         Belongs To：多对一的关系
-            
+            详见：belongsTo.go，常见场景如：公司和员工
+        Has One：一对一的关系
+            详见：hasOne.go，常见场景如：用户和信用卡
+            ... TODO ...
 
 
 

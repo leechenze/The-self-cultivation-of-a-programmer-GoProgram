@@ -40,7 +40,11 @@ func main() {
 	// goGORMActionFunc.SqlBuilder(db)
 
 	// 关联关系：
+	// 多对一的关系：
+	// println()
+	// goGORMAssociation.BelongsTo(db)
+	// 一对一的关系：
 	println()
-	goGORMAssociation.BelongsTo(db)
+	goGORMAssociation.HasOne(db)
 
 }
