@@ -19,14 +19,23 @@ func main() {
 	}
 
 	// 创建记录：
-	println()
+	// println()
 	// goGORMActionFunc.Create(db)
 
 	// 查询记录：
-	println()
+	// println()
 	// goGORMActionFunc.Query(db)
 
 	// 更新记录：
-	goGORMActionFunc.Update(db)
+	// println()
+	// goGORMActionFunc.Update(db)
+
+	// 删除记录：
+	// println()
+	// goGORMActionFunc.Delete(db)
+
+	// 原生Sql和Sql构建器：
+	// println()
+	goGORMActionFunc.SqlBuilder(db)
 
 }

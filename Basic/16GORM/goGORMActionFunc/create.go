@@ -10,7 +10,8 @@ type User struct {
 	gorm.Model
 	Name     string
 	Age      int
-	Birthday time.Time `gorm:"default:nil"`
+	Birthday time.Time `gorm:"default:2023-07-02 09:00:55.220"`
+	Active   bool
 }
 
 // 钩子函数
@@ -47,8 +48,8 @@ func Create(db *gorm.DB) {
 	// db.Select("Name", "Age").Create(&users)
 
 	// 根据Map创建
-	db.Model(&User{}).Create(map[string]interface{}{
-		"Name": "BlinKen", "Age": 40,
-	})
+	// db.Model(&User{}).Create(map[string]interface{}{
+	// 	"Name": "BlinKen", "Age": 40,
+	// })
 
 }

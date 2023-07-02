@@ -944,9 +944,7 @@
         initDataBase.go
     创建记录：
         钩子函数/回调函数：
-            BeforeSave
             BeforeCreate
-            AfterSave
             AfterCreate
         create.go
         
@@ -956,9 +954,18 @@
     
     更新记录：
         update.go
+        钩子函数(Hooks)：
+            BeforeSave
+            AfterSave
         
+    删除记录：
+        delete.go
+        钩子函数(Hooks)：
+            BeforeDelete
+            AfterDelete
     
-
+    原生Sql和SQL构建器：
+        ... TODO ...
 
 
 
