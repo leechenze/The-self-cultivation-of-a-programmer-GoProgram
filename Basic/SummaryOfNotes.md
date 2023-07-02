@@ -965,10 +965,12 @@
             AfterDelete
     
     原生Sql和SQL构建器：
-        ... TODO ...
-
-
-
+        sqlBuilder.go
+        原生Sql语句查询
+        
+    关联关系：
+        Belongs To：多对一的关系
+            
 
 
 

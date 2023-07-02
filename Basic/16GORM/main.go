@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"gorm/goGORMActionFunc"
+	"gorm/goGORMAssociation"
 )
 
 func main() {
@@ -36,6 +37,10 @@ func main() {
 
 	// 原生Sql和Sql构建器：
 	// println()
-	goGORMActionFunc.SqlBuilder(db)
+	// goGORMActionFunc.SqlBuilder(db)
+
+	// 关联关系：
+	println()
+	goGORMAssociation.BelongsTo(db)
 
 }
