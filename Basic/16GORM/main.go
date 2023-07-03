@@ -44,7 +44,16 @@ func main() {
 	// println()
 	// goGORMAssociation.BelongsTo(db)
 	// 一对一的关系：
-	println()
-	goGORMAssociation.HasOne(db)
+	// println()
+	// goGORMAssociation.HasOne(db)
+	// 一对多的关系：
+	// println()
+	// goGORMAssociation.HasMany(db)
+	// 多对多的关系：
+	// println()
+	// goGORMAssociation.ManyToMany(db)
+	// 实体关联：
+	// println()
+	goGORMAssociation.EntityAssociation(db)
 
 }
