@@ -54,6 +54,9 @@ func main() {
 	// goGORMAssociation.ManyToMany(db)
 	// 实体关联：
 	// println()
-	goGORMAssociation.EntityAssociation(db)
+	// goGORMAssociation.EntityAssociation(db)
+	// 会话配置：
+	println()
+	goGORMAssociation.SessionConf(db)
 
 }

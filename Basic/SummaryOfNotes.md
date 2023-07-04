@@ -980,30 +980,25 @@
             详见：manyToMany.go，比如：同一个用户可以说多种语言，多个用户也可以说同一种语言。
         实体关联：
             详见：entityAssociation.go
-            ... TODO ...
-        
+            在创建和更新记录时，GORM会通过Upsert自动保存关联及其引用记录。
+        会话配置（Session 配置）：
+            详见：SessionConf.go
+            GORM提供了Session方法，这是一个 New Session Method，它允许创建带配置的新建会话模式：
+                DryRun：
+                    生成Sql，但不执行生成的Sql，有会话模式和全局模式。
+                    会话模式返回的是一个固定的一段语句。
+                    全局模式返回的就是操作的数据库对象。
+                NewDB：
+                    创建一个不带之前条件的新DB。 
+                SkipHooks： 
+                    通过SkipHooks可以禁止执行Sql执行的钩子回调。 
+            更多信息请见 GORM 官网。
+        事务控制：
+            更多信息请见 GORM 官网。
+            详见：https://gorm.io/docs/transactions.html
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾;
-        
-        
-        
-        
-        
+ 
