@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GoFirstApp/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoTemplate/hello.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoTemplate/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P004T000000">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoTemplate/hello.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/GoTemplate/hello.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoTemplate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GoTemplate/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +90,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="P004T000000" />
+    <option name="LAST_COMMIT_MESSAGE" value="P004T000000" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
