@@ -1,29 +1,20 @@
 package GoTemplate
 
 import (
+	"GoWeb/GoTemplate/inheritTemplate"
 	"fmt"
-	"html/template"
 	"net/http"
 )
 
-func sayHello(w http.ResponseWriter, r *http.Request) {
-	// 解析模版
-	template, err := template.ParseFiles("./GoTemplate/hello.tmpl")
-	if err != nil {
-		fmt.Printf("parse template failed: %v\n", err)
-		return
-	}
-	// 渲染模版
-	data := "模版内容"
-	err = template.Execute(w, data)
-	if err != nil {
-		fmt.Printf("render template failed: %v\n", err)
-		return
-	}
-}
-
 func Main() {
-	http.HandleFunc("/", sayHello)
+	/** 基础模版 */
+	// http.HandleFunc("/", baseTemplate.BaseTemplate)
+	/** 嵌套模版 */
+	// http.HandleFunc("/", nestedTemplate.NestedTemplate)
+	/** 模版继承 */
+	http.HandleFunc("/index", inheritTemplate.Index)
+	http.HandleFunc("/home", inheritTemplate.Home)
+
 	err := http.ListenAndServe(":9000", nil)
 	if err != nil {
 		fmt.Printf("HTTP server start failed: %v\n", err)
@@ -31,4 +22,5 @@ func Main() {
 	} else {
 		fmt.Println("9000 serve is running")
 	}
+
 }

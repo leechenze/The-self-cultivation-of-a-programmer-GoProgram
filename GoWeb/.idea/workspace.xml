@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P004T000000">
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P005T000000">
+      <change afterPath="$PROJECT_DIR$/GoTemplate/baseTemplate/baseTemplate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/baseTemplate/baseTemplate.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/inheritTemplate/home.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/inheritTemplate/home.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/inheritTemplate/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/inheritTemplate/index.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/inheritTemplate/rootTemplate/root.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/nestedTemplate/childTemplateUl.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/nestedTemplate/nestedTemplate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/nestedTemplate/nestedTemplate.tmpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoTemplate/hello.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/GoTemplate/hello.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoTemplate/hello.tmpl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GoTemplate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GoTemplate/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +70,12 @@
     "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GoTemplate/nestedTemplate" />
+      <recent name="$PROJECT_DIR$/GoTemplate/baseTemplate" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="go build GoWeb" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoWeb" />
@@ -93,7 +109,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="P004T000000" />
-    <option name="LAST_COMMIT_MESSAGE" value="P004T000000" />
+    <MESSAGE value="P005T000000" />
+    <option name="LAST_COMMIT_MESSAGE" value="P005T000000" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>NestedTemplate</title>
+</head>
+
+<body>
+
+{{/*定义 childTemplateOl.tmpl 模版*/}}
+{{define "childTemplateOl.tmpl"}}
+    <ol>
+        <li>注释</li>
+        <li>日志</li>
+        <li>测试</li>
+    </ol>
+{{end}}
+
+{{/*模版嵌套*/}}
+<hr/>
+{{template "childTemplateUl.tmpl"}}
+<hr/>
+{{template "childTemplateOl.tmpl"}}
+<hr/>
+
+</body>
+</html>

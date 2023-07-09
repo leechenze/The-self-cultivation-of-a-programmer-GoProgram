@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>BaseTemplate</title>
+</head>
+
+<body>
+
+{{/* 结构体 */}}
+<hr/>
+<p>Hello {{.Name}}</p>
+<p>年龄 {{.Age}}</p>
+<p>性别 {{.Gender}}</p>
+
+{{/* map */}}
+<hr/>
+<p>Hello {{.name}}</p>
+<p>年龄 {{.age}}</p>
+<p>性别 {{.gender}}</p>
+
+{{/* 自定义 */}}
+<hr/>
+<p>Hello {{.map1.name}}</p>
+<p>年龄 {{.map1.age}}</p>
+<p>性别 {{.map1.gender}}</p>
+
+{{/*变量*/}}
+<hr/>
+{{ $num := 11}}
+{{ $num }}
+
+{{/*移除空格*/}}
+<hr/>
+{{ $str := " 111 "}}
+<p>{{- $str -}}</p>
+
+{{/*条件判断*/}}
+<hr/>
+{{ if $str }}
+    <p>num值为{{- $str -}}</p>
+{{ else }}
+    <p>{{"$num为nil"}}</p>
+{{end}}
+
+{{/*range遍历*/}}
+<hr/>
+{{range $ind,$hobby := .hobbyList1 }}
+    <p>{{$ind}} -- {{$hobby}}</p>
+{{else}}
+    <p>.hobbyList is empty</p>
+{{end}}
+
+{{/*with 局部作用域*/}}
+<hr/>
+{{with .map1}}
+    <p>{{.name}}</p>
+    <p>{{.age}}</p>
+    <p>{{.gender}}</p>
+{{end}}
+
+{{/*index取指定索引位的值*/}}
+<hr/>
+{{index .hobbyList 2}}
+
+{{/*内置函数 and or not ...etc...*/}}
+{{/* https://blog.csdn.net/xingzuo_1840/article/details/126596088?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168890751316800211598648%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=168890751316800211598648&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-10-126596088-null-null.142^v88^control_2,239^v2^insert_chatgpt&utm_term=go%20template%20%E9%A2%84%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187 */}}
+
+{{/* 模版函数 */}}
+<hr/>
+{{ kua "lincoln " }}
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+{{/* 这一步 define 可以不用声明定义，因为默认就是使用模版名字进行命名的（root.tmpl） */}}
+{{ define "root.tmpl" }}
+    <html>
+    <head>
+        <title>index</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            html, body {
+                height: 100%;
+            }
+
+            .wrapper {
+                width: 100%;
+                height: 100%;
+            }
+
+            .header {
+                background-color: orange;
+                height: 60px;
+            }
+
+            .main {
+                overflow: hidden;
+            }
+
+            .main-nav {
+                float: left;
+                width: 20%;
+                height: calc(100% - 60px);
+                background-color: aqua;
+            }
+
+            .main-container {
+                float: left;
+                width: 80%;
+                height: calc(100% - 60px);
+            }
+        </style>
+    </head>
+    <body>
+    <div class="wrapper">
+        <div class="header"></div>
+        <div class="main">
+            <div class="main-nav"></div>
+            <div class="main-container">
+                {{ block "content" .}}{{end}}
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+{{end}}
