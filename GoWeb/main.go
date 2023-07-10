@@ -1,12 +1,17 @@
 package main
 
-import "GoWeb/GoTemplate"
+import (
+	"GoWeb/GinTemplate"
+)
 
 func main() {
 	/** 初识Gin框架 */
-	// GoFirstApp.Main()
+	// GinFirstApp.Main()
 
 	/** Go模版引擎 */
-	GoTemplate.Main()
+	// GoTemplate.Main()
+
+	/** Gin模版渲染 */
+	GinTemplate.Main()
 
 }

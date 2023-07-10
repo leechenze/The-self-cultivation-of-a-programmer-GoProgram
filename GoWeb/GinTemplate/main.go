@@ -1,0 +1,5 @@
+package GinTemplate
+
+func Main() {
+
+}

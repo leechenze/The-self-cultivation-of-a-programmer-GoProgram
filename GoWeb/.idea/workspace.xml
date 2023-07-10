@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P008T000000">
+      <change afterPath="$PROJECT_DIR$/GinTemplate/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/supplementTemplate/supplementTemplate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoTemplate/supplementTemplate/supplementTemplate.tmpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoFirstApp/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinFirstApp/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoTemplate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GoTemplate/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -58,26 +58,14 @@
 
 
 
-壹.初识Gin框架(GoFirstApp)
+壹.初识Gin框架(GinFirstApp)
     
     官网地址：https://pkg.go.dev/github.com/gin-gonic/gin
     参考博客地址：https://liwenzhou.com/posts/Go/gin/
-    
-
-
-
-
-
-
-
-
-
-
-
 
 贰.Go模版引擎(GoTemplate)
-    
-    
+
+叁.Gin模版渲染(GinTemplate)
 
 
 

@@ -1,4 +1,4 @@
-package GoFirstApp
+package GinFirstApp
 
 import "github.com/gin-gonic/gin"
 

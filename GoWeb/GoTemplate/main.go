@@ -1,7 +1,7 @@
 package GoTemplate
 
 import (
-	"GoWeb/GoTemplate/inheritTemplate"
+	"GoWeb/GoTemplate/supplementTemplate"
 	"fmt"
 	"net/http"
 )
@@ -12,8 +12,10 @@ func Main() {
 	/** 嵌套模版 */
 	// http.HandleFunc("/", nestedTemplate.NestedTemplate)
 	/** 模版继承 */
-	http.HandleFunc("/index", inheritTemplate.Index)
-	http.HandleFunc("/home", inheritTemplate.Home)
+	// http.HandleFunc("/index", inheritTemplate.Index)
+	// http.HandleFunc("/home", inheritTemplate.Home)
+	/** 模版补充 */
+	http.HandleFunc("/", supplementTemplate.SupplementTemplate)
 
 	err := http.ListenAndServe(":9000", nil)
 	if err != nil {

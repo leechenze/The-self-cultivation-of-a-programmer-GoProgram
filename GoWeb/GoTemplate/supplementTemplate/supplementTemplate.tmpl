@@ -1,0 +1,13 @@
+<html>
+
+<head>
+    <title>SupplementTemplate</title>
+</head>
+
+<body>
+<p>用户评论的内容是：{[.htmlCon]}</p>
+<p>用户评论的内容是：{[ safe .textCon ]}</p>
+{{/*或者通过 pipeline 管道符也可以吧 .textCon 参数传给 safe 函数*/}}
+<p>用户评论的内容是：{[.textCon | safe]}</p>
+</body>
+</html>
