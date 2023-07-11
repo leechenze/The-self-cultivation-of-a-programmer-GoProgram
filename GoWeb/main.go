@@ -1,8 +1,6 @@
 package main
 
-import (
-	"GoWeb/GinTemplate"
-)
+import "GoWeb/GinParams"
 
 func main() {
 	/** 初识Gin框架 */
@@ -12,6 +10,12 @@ func main() {
 	// GoTemplate.Main()
 
 	/** Gin模版渲染 */
-	GinTemplate.Main()
+	// GinTemplate.Main()
+
+	/** GinJson */
+	// GinJson.Main()
+
+	/** Gin参数操作 */
+	GinParams.Main()
 
 }

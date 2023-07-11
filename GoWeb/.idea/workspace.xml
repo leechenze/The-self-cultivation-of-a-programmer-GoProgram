@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P008T000000">
-      <change afterPath="$PROJECT_DIR$/GinTemplate/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoTemplate/supplementTemplate/supplementTemplate.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoTemplate/supplementTemplate/supplementTemplate.tmpl" afterDir="false" />
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P009T000000">
+      <change afterPath="$PROJECT_DIR$/GinJson/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinParams/bindParams.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinParams/getParams.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinParams/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinParams/postParams.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinParams/template/login-after.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinParams/template/login.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinParams/uriParams.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinTemplate/static/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinTemplate/template/posts/index.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinTemplate/template/users/index.tmpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoFirstApp/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinFirstApp/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoTemplate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GoTemplate/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GinTemplate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinTemplate/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go Application" />
+        <option value="CSS File" />
         <option value="Go File" />
       </list>
     </option>
@@ -61,14 +67,20 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/lee",
+    "last_opened_file_path": "/Users/lee/MySkills/The-self-cultivation-of-a-programmer-GoProgram/GoWeb/GinParams/template",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GinParams/template" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GinParams" />
+      <recent name="$PROJECT_DIR$/GinTemplate/template/posts" />
       <recent name="$PROJECT_DIR$/GoTemplate/nestedTemplate" />
       <recent name="$PROJECT_DIR$/GoTemplate/baseTemplate" />
     </key>
@@ -108,7 +120,8 @@
     <MESSAGE value="P004T000000" />
     <MESSAGE value="P005T000000" />
     <MESSAGE value="P008T000000" />
-    <option name="LAST_COMMIT_MESSAGE" value="P008T000000" />
+    <MESSAGE value="P009T000000" />
+    <option name="LAST_COMMIT_MESSAGE" value="P009T000000" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

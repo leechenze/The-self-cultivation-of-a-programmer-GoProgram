@@ -67,9 +67,15 @@
 
 叁.Gin模版渲染(GinTemplate)
 
+肆.GinJson(GinJson)
 
+伍.Gin参数交互(GinParams)
 
-
+    get参数请求
+    form参数请求（post）
+    Uri路径参数
+    参数绑定
+        TODO
 
 
 

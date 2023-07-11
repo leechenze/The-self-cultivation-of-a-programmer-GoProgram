@@ -1,0 +1,18 @@
+{{define "login.tmpl"}}
+    <html>
+    <head>
+        <title>login</title>
+    </head>
+    <body>
+    <form action="/login" method="post" autocomplete="off">
+        <label for="username">username:</label>
+        <input type="text" name="username" id="usernameId"/>
+
+        <label for="password">password:</label>
+        <input type="password" name="password" id="passwordId"/>
+
+        <button type="submit">登录</button>
+    </form>
+    </body>
+    </html>
+{{end}}

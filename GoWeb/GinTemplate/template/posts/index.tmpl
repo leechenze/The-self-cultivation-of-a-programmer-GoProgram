@@ -1,0 +1,12 @@
+{{ define "posts/index.tmpl"}}
+    <html>
+    <head>
+        <title>posts/index.tmpl</title>
+        <link rel="stylesheet" href="/static/index.css"></link>
+    </head>
+    <body>
+    {{.title}}
+    {{.siteAddress | safe}}
+    </body>
+    </html>
+{{end}}
