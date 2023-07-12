@@ -1,0 +1,5 @@
+package GinRedirect
+
+func Main() {
+
+}

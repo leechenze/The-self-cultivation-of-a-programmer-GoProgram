@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P009T000000">
-      <change afterPath="$PROJECT_DIR$/GinJson/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinParams/bindParams.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinParams/getParams.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinParams/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinParams/postParams.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinParams/template/login-after.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinParams/template/login.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinParams/uriParams.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinTemplate/static/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinTemplate/template/posts/index.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinTemplate/template/users/index.tmpl" afterDir="false" />
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P014T000000">
+      <change afterPath="$PROJECT_DIR$/GinFileUpload/index.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinFileUpload/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GinRedirect/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GinTemplate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinTemplate/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GinParams/bindParams.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinParams/bindParams.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GinParams/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinParams/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
@@ -121,7 +114,8 @@
     <MESSAGE value="P005T000000" />
     <MESSAGE value="P008T000000" />
     <MESSAGE value="P009T000000" />
-    <option name="LAST_COMMIT_MESSAGE" value="P009T000000" />
+    <MESSAGE value="P014T000000" />
+    <option name="LAST_COMMIT_MESSAGE" value="P014T000000" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

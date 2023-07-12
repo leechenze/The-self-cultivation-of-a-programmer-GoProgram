@@ -1,0 +1,15 @@
+{{define "index.tmpl"}}
+    <html lang="zh-CN">
+    <head>
+        <title>GinFileUpload</title>
+    </head>
+    <body>
+    {{/* 如果是上传文件注意指定 enctype 为 multipart/form-data */}}
+    {{/* 表示如果用二进制的方式传输非文本的数据，比如文本，图片等... */}}
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file1"/>
+        <button type="submit">上传</button>
+    </form>
+    </body>
+    </html>
+{{end}}

@@ -74,10 +74,12 @@
     get参数请求
     form参数请求（post）
     Uri路径参数
-    参数绑定
-        TODO
+    参数绑定(常用){ShouldBind}
 
+陆.Gin文件上传(GinFileUpload)
 
+柒.Gin重定向(GinRedirect)
+    
 
 
 

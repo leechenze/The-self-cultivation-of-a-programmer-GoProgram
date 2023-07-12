@@ -1,6 +1,6 @@
 package main
 
-import "GoWeb/GinParams"
+import "GoWeb/GinRedirect"
 
 func main() {
 	/** 初识Gin框架 */
@@ -16,6 +16,12 @@ func main() {
 	// GinJson.Main()
 
 	/** Gin参数操作 */
-	GinParams.Main()
+	// GinParams.Main()
+
+	/** 文件上传 */
+	// GinFileUpload.Main()
+
+	/** 重定向 */
+	GinRedirect.Main()
 
 }

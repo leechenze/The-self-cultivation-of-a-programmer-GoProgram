@@ -22,7 +22,8 @@ func Main() {
 	// engine.GET("/:name/:age", UriParams)
 
 	/** 参数绑定 */
-	engine.GET("/", BindParams)
+	// engine.GET("/user", BindGetParams)
+	// engine.POST("/user", BindPostParams)
 
 	/** 运行Gin程序 */
 	engine.Run(":9090")
