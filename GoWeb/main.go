@@ -1,6 +1,6 @@
 package main
 
-import "GoWeb/GinRedirect"
+import "GoWeb/GinMiddleware"
 
 func main() {
 	/** 初识Gin框架 */
@@ -22,6 +22,12 @@ func main() {
 	// GinFileUpload.Main()
 
 	/** 重定向 */
-	GinRedirect.Main()
+	// GinRedirect.Main()
+
+	/** 路由和路由组 */
+	// GinRouter.Main()
+
+	/** 中间件 */
+	GinMiddleware.Main()
 
 }
