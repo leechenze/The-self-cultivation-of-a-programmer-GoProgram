@@ -11,8 +11,10 @@ func Main() {
 
 	/** 重定向方式一 */
 	engine.GET("/index", func(context *gin.Context) {
-		// 路由重定向
-		context.Redirect(http.StatusMovedPermanently, "https://www.google.com")
+		// 路由重定向（StatusMovedPermanently，谨慎使用将永久重定向地址到 google.com）
+		// context.Redirect(http.StatusMovedPermanently, "https://www.google.com")
+		// 路由重定向（StatusTemporaryRedirect，是临时重定向）
+		context.Redirect(http.StatusTemporaryRedirect, "https://www.baidu.com")
 	})
 
 	/** 重定向方式二（路由转发） */

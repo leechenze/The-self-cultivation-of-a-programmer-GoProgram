@@ -83,13 +83,28 @@
 捌.Gin路由和路由组(GinRouter)
 
 玖.Gin中间件(GinMiddleware)
-    ... TODO ...
 
+    Gin中的中间件说白了就是 在路由函数处理之前，执行的一个函数就是中间件，一般将一些公共的逻辑都写到中间件中，比如：权限校验，登录认证，日志记录等...
 
+    功能上相当于SpringBoot的拦截器，而且和Node的Koa的中间件非常相似，都是遵循洋葱模型。
+    
+    和KOA的洋葱模型同理，看下面例子就明白了（m1ware是中间件函数，handlerFunc是路由执行函数）：
+        m1ware --- start
+        m2ware --- start
+        GET handlerFunc run
+        m2ware --- end
+        m1ware --- end
+    
+    Gin的中间件常用方式是结合路由和路由组一起使用，
 
-
-
-
+    默认路由注意：
+        gin.Default() 默认使用了 Logger 和 Recovery 中间件，其中：
+            Logger中间件的作用就是日志打印
+            Recovery中间件会 recover 任何panic，如果有panic的话，会自动写入500相应码
+        如果不想使用默认提供的中间件，可以使用 gin.New() 新建一个没有任何默认中间件的路由。
+    Gin中间件中使用 goroutine 注意：
+        在Gin的 中间件 或者 HandlerFunc 中使用 goroutine 时，不能使用原始的上下文（ctx *gin.Context），必须使用其只读副本：ctx.Copy()。
+    
 
 
 零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾;

@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P016T000000">
-      <change afterPath="$PROJECT_DIR$/GinMiddleware/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinRouter/main.go" afterDir="false" />
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P018T000333">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GinMiddleware/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinMiddleware/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GinRedirect/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinRedirect/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +56,7 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/lee/MySkills/The-self-cultivation-of-a-programmer-GoProgram/GoWeb/GinParams/template",
+    "last_opened_file_path": "/Users/lee/MySkills/The-self-cultivation-of-a-programmer-GoProgram/GoWeb",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,7 +112,8 @@
     <MESSAGE value="P009T000000" />
     <MESSAGE value="P014T000000" />
     <MESSAGE value="P016T000000" />
-    <option name="LAST_COMMIT_MESSAGE" value="P016T000000" />
+    <MESSAGE value="P018T000333" />
+    <option name="LAST_COMMIT_MESSAGE" value="P018T000333" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
