@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P018T000333">
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P019T000000">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GinMiddleware/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinMiddleware/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GinRedirect/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinRedirect/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +111,8 @@
     <MESSAGE value="P014T000000" />
     <MESSAGE value="P016T000000" />
     <MESSAGE value="P018T000333" />
-    <option name="LAST_COMMIT_MESSAGE" value="P018T000333" />
+    <MESSAGE value="P019T000000" />
+    <option name="LAST_COMMIT_MESSAGE" value="P019T000000" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

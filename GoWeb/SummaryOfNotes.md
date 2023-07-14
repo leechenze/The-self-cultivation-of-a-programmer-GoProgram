@@ -104,7 +104,14 @@
         如果不想使用默认提供的中间件，可以使用 gin.New() 新建一个没有任何默认中间件的路由。
     Gin中间件中使用 goroutine 注意：
         在Gin的 中间件 或者 HandlerFunc 中使用 goroutine 时，不能使用原始的上下文（ctx *gin.Context），必须使用其只读副本：ctx.Copy()。
+
+
+拾.GORM
     
+    
+
+
+
 
 
 零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾;
