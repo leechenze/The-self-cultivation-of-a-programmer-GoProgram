@@ -63,24 +63,21 @@ func Main() {
 	// 请求接口分组
 	v1Group := engine.Group("v1")
 	{
-		var todo Todo
-
 		/** 待办事项 */
 		// 添加
 		v1Group.POST("/todo", func(ctx *gin.Context) {
-			// 绑定参数（将前段传过来的参数绑定到 todo对象 中）
+			var todo Todo
+			// 绑定参数（将前段传过来的参数绑定到 todo对象中）
 			ctx.ShouldBind(&todo)
-
 			// 转换前段传过来的参数数据进行打印
 			marshal, _ := json.Marshal(todo)
-			fmt.Printf("todo:%v\n", string(marshal))
-
+			fmt.Printf("POST return result:%v\n", string(marshal))
 			// 给数据库插入该数据
 			tx := db.Create(&todo)
 			// 根据影响的行数进行判断
 			if tx.RowsAffected == 0 {
 				ctx.JSON(http.StatusOK, gin.H{
-					"code":    200,
+					"code":    500,
 					"message": "操作失败",
 				})
 			} else {
@@ -90,21 +87,74 @@ func Main() {
 				})
 			}
 		})
-		// 查看所有
+		// 查询所有
 		v1Group.GET("/todo", func(ctx *gin.Context) {
-			// TODO
+			var todoList []Todo
+			// 查询所有的待办事项
+			tx := db.Find(&todoList)
+			// 转换前段传过来的参数数据进行打印
+			marshal, _ := json.Marshal(todoList)
+			fmt.Printf("GET return result:%v\n", string(marshal))
+			// 根据影响的行数进行判断
+			if tx.RowsAffected == 0 {
+				ctx.JSON(http.StatusOK, gin.H{
+					"code":    500,
+					"message": "操作失败",
+				})
+			} else {
+				ctx.JSON(http.StatusOK, todoList)
+			}
 		})
-		// 查看一个
+		// 查询一个
 		v1Group.GET("/todo/:id", func(ctx *gin.Context) {
 
 		})
 		// 修改
 		v1Group.PUT("/todo/:id", func(ctx *gin.Context) {
-
+			var todo Todo
+			// 获取路径参数 /:id
+			id := ctx.Param("id")
+			// 查询对应ID的数据
+			err := db.Where("id = ?", id).First(&todo).Error
+			// 可以根据影响的行数(RowsAffected)进行判断，也可以通过返回错误进行判断
+			if err != nil {
+				ctx.JSON(http.StatusOK, gin.H{
+					"code":      500,
+					"message":   "操作失败",
+					"errorInfo": err.Error(),
+				})
+				return
+			} else {
+				// 绑定参数（将前段传过来的参数绑定到 todo对象中）
+				ctx.ShouldBind(&todo)
+				// 更新数据,返回错误判断的简写方式
+				if err := db.Save(&todo).Error; err != nil {
+					ctx.JSON(http.StatusOK, gin.H{
+						"code":      500,
+						"message":   "操作失败",
+						"errorInfo": err.Error(),
+					})
+				} else {
+					ctx.JSON(http.StatusOK, todo)
+				}
+			}
 		})
 		// 删除
 		v1Group.DELETE("/todo/:id", func(ctx *gin.Context) {
-
+			id := ctx.Param("id")
+			tx := db.Where("id = ?", id).Delete(Todo{})
+			// 根据影响的行数进行判断
+			if tx.RowsAffected == 0 {
+				ctx.JSON(http.StatusOK, gin.H{
+					"code":    500,
+					"message": "操作失败",
+				})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{
+					"code":    200,
+					"message": "删除成功",
+				})
+			}
 		})
 	}
 
