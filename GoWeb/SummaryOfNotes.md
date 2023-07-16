@@ -108,10 +108,13 @@
 
 拾.Gin实践(GinToDoList)
     
+拾.对ToDoList实践项目进行企业级项目结构拆分(GinToDoList)
+    router          路由控制层
+    controller      路由实现层
+    dao             数据访问层
+    model           定义实体类的目录
+    logic           书写逻辑的目录，对应Java中的Service层
     
-    
-    
-
 
 
 
