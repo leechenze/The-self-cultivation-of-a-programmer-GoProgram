@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P027T000000">
-      <change afterPath="$PROJECT_DIR$/GinToDoList/controller/addToDo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinToDoList/controller/deleteToDo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinToDoList/controller/indexToDo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinToDoList/controller/queryToDoList.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinToDoList/controller/updateToDo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinToDoList/dao/todoListDao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinToDoList/model/todoListModel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GinToDoList/router/index.go" afterDir="false" />
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="完结撒花！～～～">
+      <change afterPath="$PROJECT_DIR$/../GoMicro/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GinToDoList/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/GinToDoList/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +117,8 @@
     <MESSAGE value="P025T000000" />
     <MESSAGE value="P026T002217" />
     <MESSAGE value="P027T000000" />
-    <option name="LAST_COMMIT_MESSAGE" value="P027T000000" />
+    <MESSAGE value="完结撒花！～～～" />
+    <option name="LAST_COMMIT_MESSAGE" value="完结撒花！～～～" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
