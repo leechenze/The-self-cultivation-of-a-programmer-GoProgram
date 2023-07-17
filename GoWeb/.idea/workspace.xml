@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="完结撒花！～～～">
-      <change afterPath="$PROJECT_DIR$/../GoMicro/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SummaryOfNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/SummaryOfNotes.md" afterDir="false" />
-    </list>
+    <list default="true" id="f56f05ef-137d-4ec8-9708-09250b4845f5" name="Changes" comment="P001T000000" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +114,8 @@
     <MESSAGE value="P026T002217" />
     <MESSAGE value="P027T000000" />
     <MESSAGE value="完结撒花！～～～" />
-    <option name="LAST_COMMIT_MESSAGE" value="完结撒花！～～～" />
+    <MESSAGE value="P001T000000" />
+    <option name="LAST_COMMIT_MESSAGE" value="P001T000000" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
