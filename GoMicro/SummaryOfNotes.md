@@ -42,6 +42,12 @@
         踩坑：
             JsonRPC编码方式中的 net.Listen 方法返回了错误( listen tcp 127.0.0.1:1001: bind: permission denied )
 
+    调用流程：
+        微服务架构下数据交互一般都是对内RPC，对外REST。
+        
+    会话中读写数据测试：(sessionRWData)
+        运行测试文件 session_test.go
+        里面的代码仔细读一下，就是一个写入的方法和一个读取的方法，看最终读取的数据和写入时的是否一致即可。
         
 
 
