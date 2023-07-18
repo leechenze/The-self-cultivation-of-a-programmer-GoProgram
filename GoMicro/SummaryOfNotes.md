@@ -41,17 +41,26 @@
         
         踩坑：
             JsonRPC编码方式中的 net.Listen 方法返回了错误( listen tcp 127.0.0.1:1001: bind: permission denied )
+            这是因为端口号小于1024导致的。尽量避免使用 <1024 的端口。
 
     调用流程：
         微服务架构下数据交互一般都是对内RPC，对外REST。
         
-    会话中读写数据测试：(sessionRWData)
+    会话中读写数据测试：(sessionRWData.session.go)
         运行测试文件 session_test.go
         里面的代码仔细读一下，就是一个写入的方法和一个读取的方法，看最终读取的数据和写入时的是否一致即可。
         
+    在sessionRWData的示例中，只是用 my_data := "hello" 来演示如何在RPC中通信，但是实际上RPC通信的数据格式应该是
+    一个网络字节流，即一个对象： key（header） 为 uint32 类型，value 为 []byte 类型
+    那么这样一种格式的data就要涉及到编码和解码，所以需要用到官方的encoding/gob 进行编解码。
+    数据格式和编解码定义：(sessionRWData.codec.go)
+        codec.go中写好两个函数，为实现RPC的服务端和客户端做铺垫。
 
-
-
+    实现RPC服务端：(achieveRPC)
+        
+        
+    实现RPC客户端：(achieveRPC)
+        ... TODO ...
 
 
 

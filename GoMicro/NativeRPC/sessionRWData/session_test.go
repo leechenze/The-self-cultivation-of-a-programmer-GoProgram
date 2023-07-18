@@ -10,7 +10,7 @@ import (
 
 func TestSessionReadWrite(t *testing.T) {
 	// 定义监听IP和端口
-	addr := "127.0.0.1:1001"
+	addr := "127.0.0.1:1024"
 	// 定义传输的数据
 	my_data := "hello"
 	// 定义一个等待组,解决后面定义的两个协程同步问题

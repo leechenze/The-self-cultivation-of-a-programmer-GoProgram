@@ -38,7 +38,7 @@ func main1() {
 	// 把服务处理绑定到HTTP协议上
 	rpc.HandleHTTP()
 	// 监听服务被调用 Area 和 Perimeter 方法
-	err := http.ListenAndServe(":1001", nil)
+	err := http.ListenAndServe(":1024", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -50,7 +50,7 @@ func main() {
 	rect := new(Rect)
 	rpc.Register(rect)
 	// 监听服务被调用 Area 和 Perimeter 方法
-	listen, err := net.Listen("tcp", "127.0.0.1:1001")
+	listen, err := net.Listen("tcp", "127.0.0.1:1024")
 
 	if err != nil {
 		log.Fatalf("Connect Error: %s \n", err)

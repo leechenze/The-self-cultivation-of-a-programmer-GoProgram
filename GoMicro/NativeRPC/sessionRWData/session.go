@@ -13,7 +13,7 @@ type Session struct {
 }
 
 // 创建新的连接
-func newSession(conn net.Conn) *Session {
+func NewSession(conn net.Conn) *Session {
 	return &Session{conn: conn}
 }
 
@@ -25,7 +25,7 @@ func (s *Session) Write(data []byte) error {
 	// binary只认固定长度的类型，所以使用了uint32而不是直接写入。
 	binary.BigEndian.PutUint32(buf[:4], uint32(len(data)))
 	// 写入数据
-	copy(buf[:4], data)
+	copy(buf[4:], data)
 	_, err := s.conn.Write(buf)
 	if err != nil {
 		return err
@@ -37,7 +37,7 @@ func (s *Session) Write(data []byte) error {
 func (s *Session) Read() ([]byte, error) {
 	// 读取头部长度
 	header := make([]byte, 4)
-	// 按头部长度，读取头部数据
+	// 按头部长度，读取头部数据(ReadFull是读指定长度的数据)
 	_, err := io.ReadFull(s.conn, header)
 	if err != nil {
 		return nil, err

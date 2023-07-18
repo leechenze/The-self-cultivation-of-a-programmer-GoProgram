@@ -14,9 +14,9 @@ type Params struct {
 // 调用服务
 func main() {
 	// 连接远程RPC服务
-	// http, err := rpc.DialHTTP("tcp", "127.0.0.1:1001")
+	// http, err := rpc.DialHTTP("tcp", "127.0.0.1:1024")
 	// JsonRPC连接远程RPC服务（客户端只需要改这一处即可）
-	http, err := jsonrpc.Dial("tcp", "127.0.0.1:1001")
+	http, err := jsonrpc.Dial("tcp", "127.0.0.1:1024")
 	if err != nil {
 		log.Fatal(err)
 	} else {
