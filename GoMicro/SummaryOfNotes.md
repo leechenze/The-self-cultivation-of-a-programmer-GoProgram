@@ -27,14 +27,14 @@
 
 
 
-壹.RPC
+壹.RPC(NativeRPC)
 
     简介：
         全称为远程过程调用（Remote Procedure Call），是一个计算机通信协议
         该协议允许运行于一台计算机的程序调用另一台计算机的程序
         
     案例：
-        服务端通过RPC求矩形面积和周长（NativeRPC）
+        服务端通过RPC求矩形面积和周长（rpcClient&rpcServer）
         注意要将 NativeRPC.rpcClient 和 NativeRPC.rpcServer 的 package 指定为 main 才可以单独运行
         运行 rpcServer.server.go
         再运行 rpcClient.client.go 查看结果
@@ -57,10 +57,24 @@
         codec.go中写好两个函数，为实现RPC的服务端和客户端做铺垫。
 
     实现RPC服务端：(achieveRPC)
-        
-        
+
     实现RPC客户端：(achieveRPC)
-        ... TODO ...
+
+    实现RPC通信测试：(achieveRPC.rpc_test.go)
+        
 
 
+
+
+
+
+
+贰.gRPC
+    
+    gRPC是由Google开发，是一款语言中立，平台中立，开源的远程过程调用系统。
+    gRPC是对RPC封装的一个框架，可以在多种环境中运行和交互，例如用Java写一个服务端，可以用go写的客户端进行调用。
+    protobuf是一种传输协议 或 叫网络传输的数据格式，grpc就是通过protobuf这个协议进行传输的。
+    
+    grpc 和 protobuf 安装
+    ... TODO ...
 

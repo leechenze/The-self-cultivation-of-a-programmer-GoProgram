@@ -73,7 +73,7 @@ func (s *Server) Run() {
 		fn, ok := s.funcs[rpcData.Name]
 		if !ok {
 			// 如果不存在的话，就是有问题的。
-			fmt.Printf("函数 %v 不存在： %v \n", rpcData.Name)
+			fmt.Printf("函数 %v 不存在： \n", rpcData.Name)
 			return
 		}
 		// 函数存在就调用该函数，还要解析客户端传来的参数，参数是一个数组（RPCData.Args)，这里定义一个数组放参数。
