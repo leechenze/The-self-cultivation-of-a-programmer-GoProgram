@@ -76,5 +76,57 @@
     protobuf是一种传输协议 或 叫网络传输的数据格式，grpc就是通过protobuf这个协议进行传输的。
     
     grpc 和 protobuf 安装
-    ... TODO ...
-
+        请参考：
+            https://blog.csdn.net/oJinTian1234567/article/details/129305376?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168985870416800182795636%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=168985870416800182795636&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-129305376-null-null.142^v90^control_2,239^v3^control&utm_term=mac%20grpc%20%E5%AE%89%E8%A3%85&spm=1018.2226.3001.4187
+    protobuf语法：
+        ProtoBuf官网：
+            https://protobuf.dev/
+        文件以.proto作为文件后缀，除结构定义外的语句以分号结尾
+        结构定义可以包含：message，service，enum
+        RPC方法定义结尾的分号可有可无
+        类型命名采用驼峰命名方式，字段命名采用小写字母加下划线分隔
+            限定修饰符 数据类型 字段名称 = 字段编码值
+            required string  song_name = 1
+        限定修饰符：
+            required: 表示一个必须字段
+            optional: 表示一个可选字段
+            repeated: 表示该字段可以包含 0-n 个元素，其特性和optional一样
+        数据类型：
+            和Go中的数据类型差不多，更多请查文档。
+        字段名称：
+            明明规则和Java，C的命名规则几乎相同
+        字段编码值：
+            1 - 15 这个区间的编码时间和空间效率是最高的，编码值越大，其编码时间和编码效率就越低。
+            1900 - 2000 这个区间编码值不要用，因为是Google Protobuf 系统内部保留值
+        .proto文件编译
+            通过定义好的.proto文件生成Java,Python,C++,Go等各平台的代码。
+            Go生成的文件后缀：xxx.pb.go 文件，每个消息类型对应一个结构体。
+        更多详细语法可以参看：
+            https://blog.csdn.net/weixin_42905141/article/details/125272803?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168986112416800222837211%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=168986112416800222837211&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-125272803-null-null.142^v90^control_2,239^v3^control&utm_term=protobuf&spm=1018.2226.3001.4187
+        
+    使用gRPC构建微服务（GRPC）
+        做一个处理用户信息的微服务
+        客户端通过用户名，可以从服务端查询用户的基本信息
+            目录结构及文件含义
+                gRPC
+                    proto
+                        user.proto      定义客户端请求，服务端响应的数据格式
+                        user.pb.go      命令生成，为数据交换提供的函数
+                    server.go       微服务服务端
+                    client.go       微服务客户端
+            根据 proto 文件生成 .go 文件
+            在user.proto文件右键，open in terminal，声明命令如下：
+                protoc -I . --go_out=plugins=grpc:. ./user.proto
+                命令注意：
+                    因为用到了protoc的grpc的plugin，所以对应插件需要确保安装。
+                        go get google.golang.org/protobuf/cmd/protoc-gen-go
+                        go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
+                    关于protoc-gen-go插件的配置请看：
+                        https://blog.csdn.net/qq_39938666/article/details/124370388?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168986592216800185870678%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=168986592216800185870678&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-124370388-null-null.142^v90^control_2,239^v3^control&utm_term=%20protoc-gen-go%20%E6%8A%A5%E9%94%99&spm=1018.2226.3001.4187
+            gRPC编写服务端和客户端
+                ... TODO ...
+            
+                
+                
+                
+                
