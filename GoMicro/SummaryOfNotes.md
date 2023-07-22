@@ -69,8 +69,9 @@
 
 
 
-贰.gRPC
-    
+贰.gRPC(GRPC)
+
+
     gRPC是由Google开发，是一款语言中立，平台中立，开源的远程过程调用系统。
     gRPC是对RPC封装的一个框架，可以在多种环境中运行和交互，例如用Java写一个服务端，可以用go写的客户端进行调用。
     protobuf是一种传输协议 或 叫网络传输的数据格式，grpc就是通过protobuf这个协议进行传输的。
@@ -111,11 +112,11 @@
                 gRPC
                     proto
                         user.proto      定义客户端请求，服务端响应的数据格式
-                        user.pb.go      命令生成，为数据交换提供的函数
+                        user.pb.go      命令生成的，为数据交换提供的函数
                     server.go       微服务服务端
                     client.go       微服务客户端
             根据 proto 文件生成 .go 文件
-            在user.proto文件右键，open in terminal，声明命令如下：
+            在user.proto文件右键，open in terminal，生成命令如下：
                 protoc -I . --go_out=plugins=grpc:. ./user.proto
                 命令注意：
                     因为用到了protoc的grpc的plugin，所以对应插件需要确保安装。
@@ -123,11 +124,21 @@
                         go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
                     关于protoc-gen-go插件的配置请看：
                         https://blog.csdn.net/qq_39938666/article/details/124370388?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168986592216800185870678%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=168986592216800185870678&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-124370388-null-null.142^v90^control_2,239^v3^control&utm_term=%20protoc-gen-go%20%E6%8A%A5%E9%94%99&spm=1018.2226.3001.4187
+                最终在proto目录下生成user.pb.go文件
             gRPC编写服务端和客户端
-                ... TODO ...
-            
-            
-                
-                
-                
-                
+                代码详见: GRPC.server.go 和 GRPC.client.go
+                运行 GRPC.server.go
+                再运行 GRPC.client.go 查看结果
+
+
+
+
+
+
+
+
+
+
+叁.go-micro
+    
+    ... TODO ...
