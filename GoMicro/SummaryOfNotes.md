@@ -180,7 +180,7 @@
             call 后面的 hello 就是 微服务的示例参数中给定的服务名：micro.Name("hello")
             micro call hello Hello.Info {\"username\":\"trump\"}
         最后命令行返回响应结果就是Info方法的返回值。
-            
+        
     go-micro案例：
         开启如下命令才可以通过postman进行http的接口访问。
             micro api --handler=rpc
@@ -188,3 +188,6 @@
         
         
     
+
+
+完结撒花!...
