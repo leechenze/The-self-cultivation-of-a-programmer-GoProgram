@@ -1,0 +1,23 @@
+// 版本号
+syntax = "proto3";
+
+// 声明go生成文件所在的包
+option go_package ="./;pb";
+
+// 指定生成 user.pb.go 的包名
+package proto;
+
+// 定义需要的结构体请求参数
+message InfoRequest {
+  string username = 1;
+}
+
+// 定义响应参数
+message InfoResponse {
+  string msg = 2;
+}
+
+// 定义接口
+service Hello {
+  rpc info (InfoRequest) returns (InfoResponse) {}
+}

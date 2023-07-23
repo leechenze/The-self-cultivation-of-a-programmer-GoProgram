@@ -141,4 +141,79 @@
 
 叁.go-micro
     
-    ... TODO ...
+    简介：
+        Go Micro是一个插件化的基础框架，基于此可以构建微服务，Micro的设计哲学是可插拔的插件化架构，
+        它默认使用consul作为服务发现（2019年源码修改了默认使用mdns），通过http通信，通过protobuf和json进行编解码
+        
+    主要功能：
+        服务发现：
+        负载均衡：
+        消息编码：
+        请求响应：
+        异步通信：
+        可插拔接口：
+
+    go-micro源码库：
+        https://github.com/micro
+    
+    go-micro安装：
+        在user.proto文件右键，open in terminal，生成命令如下：
+            protoc -I . --micro_out=. --go_out=. ./hello.proto
+            命令注意：
+                需要安装 protoc-gen-micro 插件。
+                通过 echo $GOPATH 查看go在本地的路径。
+                一般命令文件都放在 $GOPATH/bin目录下，比如前面的 protoc-gen-go
+                protoc-gen-micro 文件同样也会安装在这个路径下。
+            安装命令：
+                go get -u -v github.com/micro/micro
+                go get -u -v github.com/micro/go-micro
+                go get -u -v github.com/micro/protoc-gen-micro
+            install是 安装到 GOPATH 的bin目录下
+                go install github.com/micro/protoc-gen-micro
+
+        最终在proto目录下生成hello.pb.go 和 hello.pb.micro.go 文件
+        
+    micro编写服务端和访问
+        ... TODO ...
+                
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
