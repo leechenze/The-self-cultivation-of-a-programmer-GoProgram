@@ -9,6 +9,8 @@
 
 零.Go微服务实践
     
+    本章节的所有博客文档参考请看：https://www.mszlu.com
+    
     在微服务领域Java有很好的时间如Spring cloud，Golang也有自己不同的实践方式
     
     标准库/自研派系：
@@ -60,11 +62,65 @@
             编辑器集成环境启动：
                 右键debug运行
     
-    微服务应用Demo：(microservices)
-        ... TODO ...
-        
-    
-    
+    微服务应用Demo：(microservice)
+        假设有两个服务：
+            order service
+            user service
+        用户在查询订单时，同时需要获取用户信息。
+        微服务应用构建：
+            mkdir mall
+                创建商城的项目（目录）
+            cd mall
+            goctl api new order
+                构建order服务
+            goctl api new user
+                构建user服务
+            go work init
+                用workspace模式初始化项目
+            go work use order
+            go work use user
+                将order和user服务加到工作区中
+            user服务整改：
+                创建rpc目录
+                新建proto文件：user.proto
+                通过 gotcl rpc 指令生成proto的go代码
+                    goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
+                然后将rpc目录下生成的目录和文件放置到服务根目录下，将根目录下的原目录和user.go入口文件都删除，因为rpc已经生成了新的user.go入口文件。
+                go mod tidy
+                    重新加载user.go入口文件的依赖
+                编辑 logic.getuserlogic.go.GetUser 的逻辑编写文件的GetUser方法
+                    return &user.UserResponse{
+                        Id:     in.Id,
+                        Name:   "leechenze",
+                        Gender: "man",
+                    }, nil
+            order服务整改:(order服务是一个对外提供的服务，不需要user那么多rpc的操作了)
+                编辑order.api自动生成代码
+                    详见order.api
+                goctl api go -api order.api -dir ./gen
+                    将生成的代码放在gen目录下。也可直接 goctl api go -api order.api -dir ./ 生成
+                    如果有同名文件不会覆盖，只会将要生成的代码片段生成到文件中。
+                修改 etc.order-api.yaml
+                修改 config.config.go
+                修改 svc.servicecontext.go
+                修改 logic.getorderlogic.go
+                    以上修改执行跟代码吧，挺好理解，但是关联性比较杂乱。
+            为order-api.yaml中的Etcd配置启动docker
+                根目录创建：docker-compose.yaml
+                在项目根目录创建.env环境变量文件
+                启动docker：
+                    docker-compose up -d
+                启动user服务8080
+                启动order服务8888
+                访问：http://localhost:8888/api/order/get/1
+                    {
+                        "id": "1",
+                        "name": "hello order name",
+                        "userName": "hello user name"
+                    }
+    ... TODO ...
+                    
+                
     
     
     

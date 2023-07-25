@@ -1,0 +1,25 @@
+type Request {
+	Name string `path:"name,options=you|me"`
+}
+
+type Response {
+	Message string `json:"message"`
+}
+
+type (
+	OrderRequest {
+		Id string `path:"id"`
+	}
+	OrderResponse {
+		Id       string `json:"id"`
+		Name     string `json:"name"`
+		UserName string `json:"userName"`
+	}
+)
+
+service order-api {
+	@handler OrderHandler
+	get /from/:name (Request) returns (Response)
+	@handler GetOrderHandler
+	get /api/order/get/:id (OrderRequest) returns (OrderResponse)
+}
