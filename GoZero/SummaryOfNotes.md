@@ -148,11 +148,11 @@
         goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
     chmod +x ./gen_rpc.sh   注意还需要给处理文件加权限才能执行，否则权限被拒绝，sudo模式也不行。
     
-            
-
-
-
-
+    
+    ... TODO ...
+    
+    
+    
 
 
 
