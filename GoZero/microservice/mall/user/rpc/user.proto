@@ -8,6 +8,15 @@ message IdRequest {
   string id = 1;
 }
 
+message UserRequest {
+  // 用户Id
+  string id = 1;
+  // 用户名称
+  string name = 2;
+  // 用户性别
+  string gender = 3;
+}
+
 message UserResponse {
   // 用户Id
   string id = 1;
@@ -19,4 +28,5 @@ message UserResponse {
 
 service User {
   rpc getUser (IdRequest) returns (UserResponse);
+  rpc saveUser (UserRequest) returns (UserResponse);
 }

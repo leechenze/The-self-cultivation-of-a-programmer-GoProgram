@@ -7,12 +7,12 @@ import (
 	"context"
 	"user/internal/logic"
 	"user/internal/svc"
-	user2 "user/types/user"
+	"user/types/user"
 )
 
 type UserServer struct {
 	svcCtx *svc.ServiceContext
-	user2.UnimplementedUserServer
+	user.UnimplementedUserServer
 }
 
 func NewUserServer(svcCtx *svc.ServiceContext) *UserServer {
@@ -21,7 +21,12 @@ func NewUserServer(svcCtx *svc.ServiceContext) *UserServer {
 	}
 }
 
-func (s *UserServer) GetUser(ctx context.Context, in *user2.IdRequest) (*user2.UserResponse, error) {
-	l := logic.NewGetUserLogic(ctx, s.svcCtx)
+func (s *UserServer) GetUser(ctx context.Context, in *user.IdRequest) (*user.UserResponse, error) {
+	l := logic.NewUserLogic(ctx, s.svcCtx)
 	return l.GetUser(in)
+}
+
+func (s *UserServer) SaveUser(ctx context.Context, in *user.UserRequest) (*user.UserResponse, error) {
+	l := logic.NewUserLogic(ctx, s.svcCtx)
+	return l.SaveUser(in)
 }

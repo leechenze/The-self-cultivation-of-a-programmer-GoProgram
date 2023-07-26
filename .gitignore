@@ -1,0 +1,18 @@
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+
+
+.idea
+target
+
+*.log
+*.dat
+.mvn
+
+
+
+GoZero/microservice/mall/etcd/*
+GoZero/microservice/mall/mysql

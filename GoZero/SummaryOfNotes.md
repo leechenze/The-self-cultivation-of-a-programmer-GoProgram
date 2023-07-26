@@ -118,10 +118,46 @@
                         "name": "hello order name",
                         "userName": "hello user name"
                     }
-    ... TODO ...
-                    
-                
+
+
+
+
+
+
+
+
+
+壹.集成mysql数据库
     
+    在user模块中集成mysql，数据库调用，对order模块暴露服务
+    新建 internal/model/user.sql 文件
+        CREATE TABLE `user`
+        (
+            `id`     bigint(0) NOT NULL AUTO_INCREMENT,
+            `name`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+            `gender` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+            PRIMARY KEY (`id`) USING BTREE
+        ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+    在model目录下打开终端根据 user.sql 文件生成一些CURD的相关代码
+        goctl model mysql ddl --src user.sql --dir .
+        此时根据user.sql 就生成了 usermodel.go, usermodel_gen.go, vars.go三个文件
+    新建model/user.go     存放user的模型代码
+    新建repo/user.go      存放user的接口文件
+    新建dao/user.go       存放user的接口实现类的文件
+    新建rpc/gen_rpc.sh    经常执行的命令可以创建 .sh 后缀的批处理文件，直接在rpc目录下 ./gen_rpc.sh 即可执行其中的命令
+        goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
+    chmod +x ./gen_rpc.sh   注意还需要给处理文件加权限才能执行，否则权限被拒绝，sudo模式也不行。
     
-    
-        
+            
+
+
+
+
+
+
+
+
+
+
+
+零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾;
