@@ -1,0 +1,12 @@
+type Request {
+	Name string `path:"name,options=you|me"`
+}
+
+type Response {
+	Message string `json:"message"`
+}
+
+service userapi-api {
+	@handler UserapiHandler
+	get /from/:name(Request) returns (Response)
+}

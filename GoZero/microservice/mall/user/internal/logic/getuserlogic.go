@@ -42,7 +42,11 @@ func (l *UserLogic) SaveUser(in *user.UserRequest) (*user.UserResponse, error) {
 		return nil, err
 	}
 
-	// TODO
+	return &user.UserResponse{
+		Id:     string(userModel.Id),
+		Name:   userModel.Name,
+		Gender: userModel.Gender,
+	}, nil
 
 	return nil, nil
 }

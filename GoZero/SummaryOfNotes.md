@@ -118,7 +118,7 @@
                         "name": "hello order name",
                         "userName": "hello user name"
                     }
-
+                
 
 
 
@@ -148,8 +148,33 @@
         goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
     chmod +x ./gen_rpc.sh   注意还需要给处理文件加权限才能执行，否则权限被拒绝，sudo模式也不行。
     
-    
-    ... TODO ...
+    由于user的grpc服务没法直接进行调用，所以新建一个userapi服务对user服务进行调用
+        goctl api new userapi
+            新建 userapi 服务
+        go work use ./userapi/
+            将 userapi 服务加到工作目录中
+        cd userapi
+        new Go Modules File
+            新建go.mod文件 或 go mod init
+        go mod tidy
+    再创建一个rpc-common服务，这个服务什么也没有，只是存放一些rpc相关的公共引用包。
+        步骤如上，处理哪些地方详见代码。
+    其实 userapi 这个服务和 order服务是大同的，只不过用的是post请求，抽离出来有些杂乱无章。请详细跟踪代码吧。
+    最后在postman访问：localhost:8888/userapi
+    post请求，body体中 raw 传参如下：
+        {
+            "name": "test1111",
+            "gender": "man"
+        }
+    成功返回如下信息：
+        {
+            "message": "success",
+            "data": {
+                "id":"",
+                "name": "test1111",
+                "gender": "man"
+            }
+        }
     
     
     

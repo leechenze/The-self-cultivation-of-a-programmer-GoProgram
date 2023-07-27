@@ -19,7 +19,7 @@ func NewUserDao(Conn *database.DBConn) *UserDao {
 
 func (d *UserDao) Save(ctx context.Context, user *model.User) error {
 
-	sqlStat := fmt.Sprintf("insert info %s (name,gender) values(?,?)", user.TableName())
+	sqlStat := fmt.Sprintf("insert into %s (name,gender) values(?,?)", user.TableName())
 
 	execRes, err := d.Conn.ExecCtx(ctx, sqlStat, user.Name, user.Gender)
 	if err != nil {
