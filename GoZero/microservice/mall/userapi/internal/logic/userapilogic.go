@@ -23,7 +23,7 @@ func NewUserapiLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UserapiLo
 	}
 }
 
-func (l *UserapiLogic) Userapi(req *types.Request) (resp *types.Response, err error) {
+func (l *UserapiLogic) Register(req *types.Request) (resp *types.Response, err error) {
 	// todo: add your logic here and delete this line
 	// 超时上下文，不用 context.Background 了
 	ctx, cancelFunc := context.WithTimeout(context.Background(), 5*time.Second)
@@ -39,4 +39,18 @@ func (l *UserapiLogic) Userapi(req *types.Request) (resp *types.Response, err er
 		Message: "success",
 		Data:    userResponse,
 	}, nil
+}
+
+func (l *UserapiLogic) GetUser(t *types.IdRequest) (resp *types.Response, err error) {
+	userResponse, err := l.svcCtx.UserRPC.GetUser(context.Background(), &user.IdRequest{
+		Id: t.Id,
+	})
+	if err != nil {
+		return nil, err
+	}
+	resp = &types.Response{
+		Message: "success",
+		Data:    userResponse,
+	}
+	return
 }

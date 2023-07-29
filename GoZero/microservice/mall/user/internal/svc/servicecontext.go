@@ -16,6 +16,6 @@ type ServiceContext struct {
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config:   c,
-		UserRepo: dao.NewUserDao(database.Connect(c.Mysql.DataSource)), // userDao实现了userRepo的save方法，所以说userDao是userRepo的实现类
+		UserRepo: dao.NewUserDao(database.Connect(c.Mysql.DataSource, c.CacheRedis)), // userDao实现了userRepo的save方法，所以说userDao是userRepo的实现类
 	}
 }

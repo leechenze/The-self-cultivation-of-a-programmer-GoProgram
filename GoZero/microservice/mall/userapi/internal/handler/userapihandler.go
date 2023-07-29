@@ -26,7 +26,23 @@ func (h UserHandler) Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	l := logic.NewUserapiLogic(r.Context(), h.svcCtx)
-	resp, err := l.Userapi(&req)
+	resp, err := l.Register(&req)
+	if err != nil {
+		httpx.ErrorCtx(r.Context(), w, err)
+	} else {
+		httpx.OkJsonCtx(r.Context(), w, resp)
+	}
+}
+
+func (h UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
+	var req types.IdRequest
+	if err := httpx.ParsePath(r, &req); err != nil {
+		httpx.ErrorCtx(r.Context(), w, err)
+		return
+	}
+
+	l := logic.NewUserapiLogic(r.Context(), h.svcCtx)
+	resp, err := l.GetUser(&req)
 	if err != nil {
 		httpx.ErrorCtx(r.Context(), w, err)
 	} else {
