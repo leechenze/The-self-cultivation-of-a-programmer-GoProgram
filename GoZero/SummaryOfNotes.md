@@ -160,7 +160,7 @@
     再创建一个rpc-common服务，这个服务什么也没有，只是存放一些rpc相关的公共引用包。
         步骤如上，处理哪些地方详见代码。
     其实 userapi 这个服务和 order服务是大同的，只不过用的是post请求，抽离出来有些杂乱无章。请详细跟踪代码吧。
-    最后在postman访问：localhost:8888/userapi
+    最后在postman访问：localhost:8888/register
     post请求，body体中 raw 传参如下：
         {
             "name": "test1111",
@@ -175,9 +175,64 @@
                 "gender": "man"
             }
         }
+
+
+
+
+
+
+
+
+
+贰.集成Redis缓存
     
+    go-zero框架使用的是go-redis, 在go-zero包中本来就集成了go-redis, 所以可以直接用，不用再导包了。
+    user模块:
+        添加配置：
+            user/internal/cofnig/config.go
+                CacheRedis cache.CacheConf
+            user/internal/etc/user.yaml
+                CacheRedis:
+                    - Host: 127.0.0.1:6379
+                    - Type: node
+        配置缓存连接：
+            user/database/sqlx.go
+        接口中定义FindById方法
+            internal/repo/user.go
+        实现FindById方法
+            internal/dao/user.go
+        启动redis服务端口为默认的6379
+        启动user服务
+    userapi模块：
+        添加路由： 
+            internal/handler/routes.go
+                {
+                    Method:  http.MethodGet,
+                    Path:    "/user/get/:id",
+                    Handler: userapiHandler.GetUser,
+                },
+        声明并实现GetUser方法和逻辑：
+            internal/handler/userapihandler.go
+            internal/logic/userapilogic.go
+        启动userapi服务并访问测试：
+            localhost:8888/user/get/4
+        查看redis缓存，每访问一次都将在Redis中成功缓存。
+
+
+
+
+
+
+
+
+
+
+叁.集成JWT中间件
     
-    
+    ... TODO ...
+
+
+
 
 
 

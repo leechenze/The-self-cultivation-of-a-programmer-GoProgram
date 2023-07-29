@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"strconv"
 	"user/internal/model"
 	"user/internal/svc"
 	"user/types/user"
@@ -25,10 +26,15 @@ func NewUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UserLogic {
 
 func (l *UserLogic) GetUser(in *user.IdRequest) (*user.UserResponse, error) {
 	// todo: add your logic here and delete this line
+	id, _ := strconv.ParseInt(in.Id, 10, 64)
+	userData, err := l.svcCtx.UserRepo.FindById(context.Background(), id)
+	if err != nil {
+		return nil, err
+	}
 	return &user.UserResponse{
 		Id:     in.Id,
-		Name:   "hello user name",
-		Gender: "man",
+		Name:   userData.Name,
+		Gender: userData.Gender,
 	}, nil
 }
 

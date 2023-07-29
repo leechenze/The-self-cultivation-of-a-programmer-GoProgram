@@ -13,6 +13,5 @@ target
 .mvn
 
 
-
-GoZero/microservice/mall/etcd
-GoZero/microservice/mall/mysql
+GoZero/microservice/mall/etcd/
+GoZero/microservice/mall/mysql/
