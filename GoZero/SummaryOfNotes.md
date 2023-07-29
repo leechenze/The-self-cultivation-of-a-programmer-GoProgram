@@ -229,7 +229,111 @@
 
 叁.集成JWT中间件
     
+    流程：
+        先登录，获取token，前端会存储token，下一次请求在header中携带token
+    
+    userapi模块：
+        添加配置：
+            etc/userapi-api.yaml
+                Auth:
+                    AccessSecret: "~!@#$%^&*()"
+                    AccessExpire: 604800
+                解读：AccessSecret是一个自定义的验证密钥,AccessExpire是过期时间为七天
+            internal/config/config.go
+                Auth    struct {
+                    AccessSecret string
+                    AccessExpire int64
+                }
+        添加登录路由和登录逻辑：
+            internal/handler/routers.go
+            internal/handler/userapihandler.go
+            internal/logic/userapilogic.go
+        修改userapi.api并生成go代码
+            userapi.api
+                goctl api go -api userapi.api -dir ./gen
+            注意：这里只是生成的代码只是看下goctl生成的jwt代码是如何写的和写在哪的，最好不要拿来即用。
+        然后通过userapi.api模版生成的代码参考，jwt的配置需要写到routes.go中
+            []rest.Route{
+                {
+                    Method:  http.MethodGet,
+                    Path:    "/user/get/:id",
+                    Handler: userapiHandler.GetUser,
+                },
+            },
+            rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
+        启动user和userapi服务进行测试：
+            postman测试：localhost:8888/user/get/3，如果返回状态码为401表示已经初步成功认证了。
+            然后访问login接口，返回jwt字符串密钥并复制
+            再次访问/user/get/3，在Headers请求头中携带这段token，添加：Authorization: login接口生成的jwt密钥。
+            此时状态码不再是401，且得到的正确的返回结果。
+
+
+
+
+
+
+
+
+
+
+
+肆.GoZero中间件集成
+
+    userapi模块：
+        修改路由，添加中间件：
+            internal/handler/routes.go
+        新建middlewares中间件目录：
+            internal/middlewares/user.go
+        添加中间件的资源池（service层）的依赖
+            internal/svc/servicecontext.go
+
+
+
+
+
+
+
+ 
+
+伍.自定义错误
+
+    userapi模块：
+        在GetUser逻辑中模拟一个错误
+            internal/logic/userapilogic.go
+        自定义错误包
+            internal/customError/error.go
+        在userapi.go入口文件中使用自定义错误
+            httpx.SetErrorHandlerCtx(func(ctx context.Context, err error) (httpStatus int, errorData any) 
+        重启服务测试：
+            postman访问：localhost:8888/user/get/1，因为在GetUser的逻辑处理中只对id为1的数据做了自定义错误测试
+            返回结果即customError.BizError的格式
+                {
+                    "code": 500,
+                    "msg": "参数错误"
+                }
+    （额外知识点）生成的模版格式修改：
+        go-zero生成代码是基于模版生成的，如果需要自定义或者生成的代码格式不符合期望，也可以修改模版代码
+        操作步骤：
+            goctl template init
+                可以返回你本地模版的位置在哪里，然后打开这个位置执行修改即可。
+        详细请参考官网地址：
+            https://go-zero.dev/docs/tutorials/cli/template
+
+
+
+
+
+
+
+
+
+
+陆.Goctl详解
+    
     ... TODO ...
+
+
+
 
 
 

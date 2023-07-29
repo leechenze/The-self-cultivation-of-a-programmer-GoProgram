@@ -12,19 +12,36 @@ import (
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 
 	userapiHandler := NewUserapiHandler(serverCtx)
-
+	// 中间件（全局性质的）
+	server.Use(serverCtx.UserMiddleware.GlobalMiddleware)
+	// 不需要Token校验的路由
 	server.AddRoutes(
-		[]rest.Route{
-			{
+		// 中间件（局部性质的,只是作用域包含的这些路由）
+		rest.WithMiddlewares(
+			[]rest.Middleware{
+				serverCtx.UserMiddleware.LoginAndRegister,
+			},
+			rest.Route{
 				Method:  http.MethodPost,
 				Path:    "/register",
 				Handler: userapiHandler.Register,
 			},
+			rest.Route{
+				Method:  http.MethodPost,
+				Path:    "/login",
+				Handler: userapiHandler.Login,
+			},
+		),
+	)
+	// 需要Token校验的路由
+	server.AddRoutes(
+		[]rest.Route{
 			{
 				Method:  http.MethodGet,
 				Path:    "/user/get/:id",
 				Handler: userapiHandler.GetUser,
 			},
 		},
+		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
 	)
 }

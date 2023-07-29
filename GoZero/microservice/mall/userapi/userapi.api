@@ -1,12 +1,18 @@
 type Request {
-	Name string `path:"name,options=you|me"`
+    Name string `path:"name,options=you|me"`
 }
 
 type Response {
-	Message string `json:"message"`
+    Message string `json:"message"`
 }
 
+// 表示生成后的代码的service中的接口是需要jwt认证的
+// 注意这里只是模版参照,对生成的jwt代码参考,不要拿来即用.
+@server(
+    jwt : Auth
+)
+
 service userapi-api {
-	@handler UserapiHandler
-	get /from/:name(Request) returns (Response)
+    @handler UserapiHandler
+    get /from/:name (Request) returns (Response)
 }

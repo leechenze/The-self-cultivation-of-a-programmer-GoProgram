@@ -2,9 +2,11 @@ package logic
 
 import (
 	"context"
+	"github.com/golang-jwt/jwt/v4"
 	"github.com/zeromicro/go-zero/core/logx"
 	"rpc-common/types/user"
 	"time"
+	"userapi/internal/customError"
 	"userapi/internal/svc"
 	"userapi/internal/types"
 )
@@ -15,12 +17,26 @@ type UserapiLogic struct {
 	svcCtx *svc.ServiceContext
 }
 
+// 定义UserapiLogic的构造函数
 func NewUserapiLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UserapiLogic {
 	return &UserapiLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
+}
+
+// 定义生成token的方法
+func (l *UserapiLogic) getToken(secretKey string, iat, seconds, userId int64) (string, error) {
+	// seconds：过期时间
+	// iat：表示签发时间，即当前时间
+	claims := make(jwt.MapClaims)
+	claims["exp"] = iat + seconds
+	claims["iat"] = iat
+	claims["userId"] = userId
+	token := jwt.New(jwt.SigningMethodHS256)
+	token.Claims = claims
+	return token.SignedString([]byte(secretKey))
 }
 
 func (l *UserapiLogic) Register(req *types.Request) (resp *types.Response, err error) {
@@ -42,6 +58,16 @@ func (l *UserapiLogic) Register(req *types.Request) (resp *types.Response, err e
 }
 
 func (l *UserapiLogic) GetUser(t *types.IdRequest) (resp *types.Response, err error) {
+
+	// 模拟一个自定义错误的测试
+	if t.Id == "1" {
+		return nil, customError.ParamsError
+	}
+
+	// 认证通过后从token中获取用户id，获取之后会放到ctx上下文中，直接从ctx中回去即可。
+	userId := l.ctx.Value("userId")
+	// 这里用go-zero的打印日志，信息比较全面。
+	logx.Infof("获取到的token的userId是：%v \n", userId)
 	userResponse, err := l.svcCtx.UserRPC.GetUser(context.Background(), &user.IdRequest{
 		Id: t.Id,
 	})
@@ -53,4 +79,12 @@ func (l *UserapiLogic) GetUser(t *types.IdRequest) (resp *types.Response, err er
 		Data:    userResponse,
 	}
 	return
+}
+
+func (l *UserapiLogic) Login(t *types.LoginRequest) (token string, err error) {
+	logx.Infof("正在执行login方法")
+
+	userId := 100
+	auth := l.svcCtx.Config.Auth
+	return l.getToken(auth.AccessSecret, time.Now().Unix(), auth.AccessExpire, int64(userId))
 }

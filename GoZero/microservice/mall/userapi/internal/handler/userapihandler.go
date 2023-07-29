@@ -49,3 +49,20 @@ func (h UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
 		httpx.OkJsonCtx(r.Context(), w, resp)
 	}
 }
+
+func (h UserHandler) Login(w http.ResponseWriter, r *http.Request) {
+	// 直接生成一个token字符串
+	var req types.LoginRequest
+	if err := httpx.ParsePath(r, &req); err != nil {
+		httpx.ErrorCtx(r.Context(), w, err)
+		return
+	}
+
+	l := logic.NewUserapiLogic(r.Context(), h.svcCtx)
+	resp, err := l.Login(&req)
+	if err != nil {
+		httpx.ErrorCtx(r.Context(), w, err)
+	} else {
+		httpx.OkJsonCtx(r.Context(), w, resp)
+	}
+}

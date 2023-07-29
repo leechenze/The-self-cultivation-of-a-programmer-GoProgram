@@ -11,7 +11,8 @@ target
 *.log
 *.dat
 .mvn
-.rdb
+*.rdb
+
 
 GoZero/microservice/mall/etcd/
 GoZero/microservice/mall/mysql/

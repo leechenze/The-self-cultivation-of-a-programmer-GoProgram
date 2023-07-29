@@ -6,3 +6,6 @@ UserRPC:
     Hosts:
       - 127.0.0.1:2379
     Key: user.rpc
+Auth:
+  AccessSecret: "~!@#$%^&*()"
+  AccessExpire: 604800
