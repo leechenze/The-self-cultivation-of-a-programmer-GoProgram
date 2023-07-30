@@ -330,16 +330,51 @@
 
 陆.Goctl详解
     
+    Goctl命令详见官网：https://go-zero.dev
+
+
+
+
+
+
+
+
+
+柒.集成日志
+    
+    在Gozero中使用最多的第三方日志库：
+        zap：    https://github.com/zeromicro/zero-contrib/blob/main/logx/zapx/zap.go
+        logrus： https://github.com/zeromicro/zero-contrib/blob/main/logx/logrusx/logrus.go
+    这两个日志库相比zap用的更多一些，这里在userapi模块集成zap日志
+    userapi模块：
+        新建日志包：
+            userapi/zapx/zap.go
+                将上面给出的zap.go的github地址的代码直接拷贝粘贴。
+        启动类中设置日志的writer
+            userapi/userapi.go
+                logger := zerolog.New(os.Stderr).With().Timestamp().Logger()
+                writer := NewZeroLogWriter(logger)
+                logx.SetWriter(writer)
+        在userapilogic.go中测试日志输出
+            userapi/internal/logic/userapilogic.go
+                查看之前就使用过的 logx.Infof 的日志输出，启动user和userapi服务
+                访问登录接口和获取用户接口在控制台查看日志
+                localhost:8888/user/get/1
+                可以在zapx/zap.go的Info方法打个断点，以证明 logx.Infof 走的是zap包中的方法。
+
+
+
+
+
+
+
+
+
+捌.集成监控
+    
+    在微服务开发中，监控是一件非常重要的事情，很多线上问题都需要通过监控来出发告警，从而进行即使处理。
+    Prometheus是目前应用最广泛，使用最多的监控中间件。
     ... TODO ...
-
-
-
-
-
-
-
-
-
 
 
 

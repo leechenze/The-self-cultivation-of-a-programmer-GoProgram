@@ -4,9 +4,11 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/rest/httpx"
 	"net/http"
 	"userapi/internal/customError"
+	"userapi/zapx"
 
 	"userapi/internal/config"
 	"userapi/internal/handler"
@@ -40,6 +42,11 @@ func main() {
 			return http.StatusInternalServerError, nil
 		}
 	})
+
+	// 设置log的writer
+	zapWriter, err := zapx.NewZapWriter()
+	logx.Must(err)
+	logx.SetWriter(zapWriter)
 
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
 	server.Start()

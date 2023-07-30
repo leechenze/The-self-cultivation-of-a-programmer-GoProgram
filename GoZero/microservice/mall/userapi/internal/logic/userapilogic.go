@@ -83,7 +83,6 @@ func (l *UserapiLogic) GetUser(t *types.IdRequest) (resp *types.Response, err er
 
 func (l *UserapiLogic) Login(t *types.LoginRequest) (token string, err error) {
 	logx.Infof("正在执行login方法")
-
 	userId := 100
 	auth := l.svcCtx.Config.Auth
 	return l.getToken(auth.AccessSecret, time.Now().Unix(), auth.AccessExpire, int64(userId))
