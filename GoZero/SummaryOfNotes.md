@@ -374,7 +374,46 @@
     
     在微服务开发中，监控是一件非常重要的事情，很多线上问题都需要通过监控来出发告警，从而进行即使处理。
     Prometheus是目前应用最广泛，使用最多的监控中间件。
-    ... TODO ...
+    
+    docker-compose.yaml添加配置
+          prometheus:
+            container_name: prometheus
+            image: bitnami/prometheus:2.40.7
+            environment:
+              - TZ=Asia/Shanghai
+            privileged: true
+            volumes:
+              - ${PRO_DIR}/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml  # 将 prometheus 配置文件挂载到容器里
+              - ${PRO_DIR}/target.json:/opt/bitnami/prometheus/conf/targets.json  # 将 prometheus 配置文件挂载到容器里
+            ports:
+              - "9090:9090"                     # 设置容器9090端口映射指定宿主机端口，用于宿主机访问可视化web
+            restart: always
+    prometheus.yml和targets.json都在prometheus目录下
+    targets.json是对当前进行监控的服务的描述
+    docker-compose重新启动以加载prometheus的配置
+        docker-compose up -d
+    在userapi/etc/userapi-api.yaml添加配置
+        Prometheus:
+            Host: 127.0.0.1
+            Port: 9081
+            Path: /metrics
+    在user/etc/user.yaml添加配置
+        Prometheus:
+            Host: 127.0.0.1
+            Port: 9091
+            Path: /metrics
+    访问prometheus的管理界面：
+        http://localhost:9090/targets?search=
+    
+
+
+
+
+
+
+
+
+
 
 
 
