@@ -384,7 +384,7 @@
             privileged: true
             volumes:
               - ${PRO_DIR}/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml  # 将 prometheus 配置文件挂载到容器里
-              - ${PRO_DIR}/target.json:/opt/bitnami/prometheus/conf/targets.json  # 将 prometheus 配置文件挂载到容器里
+              - ${PRO_DIR}/targets.json:/opt/bitnami/prometheus/conf/targets.json  # 将 prometheus 配置文件挂载到容器里
             ports:
               - "9090:9090"                     # 设置容器9090端口映射指定宿主机端口，用于宿主机访问可视化web
             restart: always
@@ -402,9 +402,75 @@
             Host: 127.0.0.1
             Port: 9091
             Path: /metrics
-    访问prometheus的管理界面：
+    访问prometheus的web可视化界面：(选择Status/Targets)
         http://localhost:9090/targets?search=
+        注意：docker容器内部访问外部的地址就使用 host.docker.internal:8080，host.docker.internal用以指代外部的IP地址.
+        选择graph，输入Expression: {app="user-api"}
+        即可查看app名为 user-api 的服务请求。user-api就是在targets.json中配置的服务名称
+
+
+
+
+
+
+
+
+
+
+
+玖.集成Jeager
+
+    Jeager是一个链路追踪的中间件，说白了就是方便查看某个服务在某个时刻具体调用了某个服务，
     
+    docker-compose.yaml添加配置(jeager要依赖ElasticSearch，所以也需要集成下es的配置)
+        jaeger:
+            container_name: jaeger
+            image: jaegertracing/all-in-one
+            environment:
+              - TZ=Asia/Shanghai
+              - SPAN_STORAGE_TYPE=elasticsearch
+              - ES_SERVER_URLS=http://elasticsearch:9200
+              - LOG_LEVEL=debug
+            privileged: true
+            ports:
+              - "6831:6831/udp"
+              - "6832:6832/udp"
+              - "5778:5778"
+              - "16686:16686"
+              - "4317:4317"
+              - "4318:4318"
+              - "14250:14250"
+              - "14268:14268"
+              - "14269:14269"
+              - "9411:9411"
+            restart: always
+        elasticsearch:
+            container_name: elasticsearch
+            image: elasticsearch:7.13.1
+            environment:
+                - TZ=Asia/Shanghai
+                - discovery.type=single-node
+                - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            privileged: true
+            ports:
+                - "9200:9200"
+            restart: always
+    在userapi/etc/userapi-api.yaml添加配置
+        Telemetry:
+            Name: user-api
+            Endpoint: http://localhost:14268/api/traces
+            Sampler: 1.0
+            Batcher: jaeger
+    在user/etc/user.yaml添加配置
+        Telemetry:
+            Name: user-rpc
+            Endpoint: http://localhost:14268/api/traces
+            Sampler: 1.0
+            Batcher: jaeger
+    重启userapi和user服务
+    访问jeager的web可视化界面：http://localhost:16686
+        首次打开是没有service可以监控的，需要先请求两次，然后在刷新jeager查看service就有了，
+        然后选择user-rpc，点击find traces 即可查看请求的访问信息和信息的跟踪链路
 
 
 
@@ -413,6 +479,12 @@
 
 
 
+
+
+
+拾.分布式事务
+    
+    ... TODO ...
 
 
 

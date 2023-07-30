@@ -43,7 +43,39 @@ services:
     privileged: true
     volumes:
       - ${PRO_DIR}/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml  # 将 prometheus 配置文件挂载到容器里
-      - ${PRO_DIR}/target.json:/opt/bitnami/prometheus/conf/targets.json  # 将 prometheus 配置文件挂载到容器里
+      - ${PRO_DIR}/targets.json:/opt/bitnami/prometheus/conf/targets.json  # 将 prometheus 配置文件挂载到容器里
     ports:
       - "9090:9090"                     # 设置容器9090端口映射指定宿主机端口，用于宿主机访问可视化web
+    restart: always
+  jaeger:
+    container_name: jaeger
+    image: jaegertracing/all-in-one
+    environment:
+      - TZ=Asia/Shanghai
+      - SPAN_STORAGE_TYPE=elasticsearch
+      - ES_SERVER_URLS=http://elasticsearch:9200
+      - LOG_LEVEL=debug
+    privileged: true
+    ports:
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
+      - "14250:14250"
+      - "14268:14268"
+      - "14269:14269"
+      - "9411:9411"
+    restart: always
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:7.17.6
+    environment:
+      - TZ=Asia/Shanghai
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    privileged: true
+    ports:
+      - "9200:9200"
     restart: always
