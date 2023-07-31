@@ -2,9 +2,12 @@ package logic
 
 import (
 	"context"
+	"fmt"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/zeromicro/go-zero/core/logx"
 	"rpc-common/types/user"
+	"rpc-common/types/userscore"
+	"strconv"
 	"time"
 	"userapi/internal/customError"
 	"userapi/internal/svc"
@@ -51,6 +54,16 @@ func (l *UserapiLogic) Register(req *types.Request) (resp *types.Response, err e
 	if err != nil {
 		return nil, err
 	}
+	// 加积分
+	userId, _ := strconv.ParseInt(userResponse.Id, 10, 64)
+	println("=============================================")
+	fmt.Printf("userId: %v \n", userId)
+	println("=============================================")
+	userScore, err := l.svcCtx.UserScoreRPC.SaveUserScore(context.Background(), &userscore.UserScoreRequest{
+		UserId: userId,
+		Score:  10,
+	})
+	fmt.Printf("registed add score %d \n", userScore.Score)
 	return &types.Response{
 		Message: "success",
 		Data:    userResponse,

@@ -484,7 +484,105 @@
 
 拾.分布式事务
     
-    ... TODO ...
+    分布式事物也是微服务架构中必不可少的
+    go-zero使用了dtm的方案来解决分布式事物的问题，dtm也是由国人开发。
+    DTM是一款开源的分布式事务管理器，解决跨数据库、跨服务、跨语言栈更新数据的一致性问题。
+    通俗一点说，DTM提供跨服务事务能力，一组服务要么全部成功，要么全部回滚，避免只更新了一部分数据产生的一致性问题。
+    
+    dtm地址：https://dtm.pub/
+    集成地址：https://dtm.pub/ref/gozero.html
+    安装dtm：
+        下载dtm源码，可以挑选一个版本
+        这里就不用docker启动了，直接下载源码启动，因为要指定dtm的配置文件。
+        dtm位于和mall同一层目录
+            cd dtm
+            运行dtm
+                go run main.go -c conf.yml
+            拷贝conf.sample.yml文件为conf.yml，配置如下：
+                MicroService:
+                    Driver: 'dtm-driver-gozero' # name of the driver to handle register/discover
+                    Target: 'etcd://localhost:2379/dtmservice' # register dtm server to this url
+                    EndPoint: 'localhost:36790'
+        创建数据库和表：（注意这个表是在 dtm_barrier 库中）
+            create database if not exists dtm_barrier;
+            /*!40100 DEFAULT CHARACTER SET utf8mb4 */
+            drop table if exists dtm_barrier.barrier;
+            create table if not exists dtm_barrier.barrier(
+                id bigint(22) PRIMARY KEY AUTO_INCREMENT,
+                trans_type varchar(45) default '',
+                gid varchar(128) default '',
+                branch_id varchar(128) default '',
+                op varchar(45) default '',
+                barrier_id varchar(45) default '',
+                reason varchar(45) default '' comment 'the branch type who insert this record',
+                create_time datetime DEFAULT now(),
+                update_time datetime DEFAULT now(),
+                key(create_time),
+                key(update_time),
+                UNIQUE key(gid, branch_id, op, barrier_id)
+            ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+        创建一个积分服务:
+            假设我们这里有个业务，在注册的时候，需要给用户增加积分，这个积分可以后续在系统的商城进行兑换商品。
+            我们创建一个独立的积分服务，注册成功后，进行积分服务调用，增加积分，如果积分增加失败，回滚。
+                创建user_score表（注意这个表是在 go_zero_db 库中）
+                    CREATE TABLE `user_score`  (
+                        `id` bigint(0) NOT NULL AUTO_INCREMENT,
+                        `user_id` bigint(0) NOT NULL,
+                        `score` int(0) NOT NULL,
+                        PRIMARY KEY (`id`) USING BTREE
+                    ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+                mkdir userscore
+                复制user/rpc/* 到 userscore项目下
+                修改user.proto 为 userscore.proto 及内容，将user换成user_score
+                    内容详见：userscore.proto
+                修改gen_rpc.sh的内容
+                    goctl rpc protoc userscore.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
+                cd userscore
+                生成go代码目录
+                    ./gen_rpc.sh
+                初始化userscore模块
+                    go mod init userscore
+                userscore依赖安装
+                    go mod tidy
+                cd ..
+                将userscore添加到工作区
+                    go work use ./userscore
+                将公用代码挪到rpc-common包下
+                    userscoreclient ==> rpc-common
+                    userscore/types/userscore ==> rpc-common/types/userscore
+                复制user/database包到userscore/database
+                修改userscore/etc/userscore.yaml
+                    配置内容详见代码
+                修改和添加dao，model，repo目录及目录下文件（从user包拷过来进行修改）
+                修改logic，server，svc，config目录及目录下文件（这些由命令生成的代码可能会有引入路径错误等问题,都检查一遍）
+                    详细改造请看包内具体代码
+        修改userapi服务
+            修改 etc/userapi-api.yaml
+            修改 internal/config/config.go
+            修改 internal/svc/servicecontext.go
+            修改 internal/logic/userapilogic.go
+                给Register方法加入积分的相关逻辑。
+        启动userscore服务，重启userapi和user服务。
+            注册（保存）一个用户：localhost:8888/register
+                {
+                    "name": "tesffffff123",
+                    "gender": "woman"
+                }
+            这时可以看到user表和user_score表中都成功添加了对应的数据，首先将流程走通。
+            
+            ... TODO ...
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
