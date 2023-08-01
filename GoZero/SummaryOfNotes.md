@@ -569,14 +569,14 @@
                     "gender": "woman"
                 }
             这时可以看到user表和user_score表中都成功添加了对应的数据，首先将流程走通。
-        集成分布式事物：
-            这里详细的集成方案谷歌吧
-            本章节原视频和博客地址：
-                https://www.bilibili.com/video/BV1Fg4y1W7Na?p=15&vd_source=6122dea75af0b44c85ff18d196f1b32d
-                https://www.mszlu.com/go/go-zero/06/06.html#_4-2-%E5%AE%9E%E7%8E%B0
-            也可以参考以上是本章节的视频教程进行集成
-            该参考教程的描述虽然模棱两可，但是大体流程是通的，可以放心参考借鉴。
-            这里后续就分布式事物不再进行更新了，工作用到时自行谷歌吧。
+    集成分布式事物：
+        这里详细的集成方案谷歌吧
+        本章节原视频和博客地址：
+            https://www.bilibili.com/video/BV1Fg4y1W7Na?p=15&vd_source=6122dea75af0b44c85ff18d196f1b32d
+            https://www.mszlu.com/go/go-zero/06/06.html#_4-2-%E5%AE%9E%E7%8E%B0
+        也可以参考以上是本章节的视频教程进行集成
+        该参考教程的描述虽然模棱两可，但是大体流程是通的，可以放心参考借鉴。
+        这里后续就分布式事物不再进行更新了，工作用到时自行谷歌吧。
 
 
 
