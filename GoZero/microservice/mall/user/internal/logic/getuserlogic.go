@@ -47,9 +47,8 @@ func (l *UserLogic) SaveUser(in *user.UserRequest) (*user.UserResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return &user.UserResponse{
-		Id:     string(userModel.Id),
+		Id:     strconv.FormatInt(userModel.Id, 10),
 		Name:   userModel.Name,
 		Gender: userModel.Gender,
 	}, nil

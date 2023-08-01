@@ -56,9 +56,6 @@ func (l *UserapiLogic) Register(req *types.Request) (resp *types.Response, err e
 	}
 	// 加积分
 	userId, _ := strconv.ParseInt(userResponse.Id, 10, 64)
-	println("=============================================")
-	fmt.Printf("userId: %v \n", userId)
-	println("=============================================")
 	userScore, err := l.svcCtx.UserScoreRPC.SaveUserScore(context.Background(), &userscore.UserScoreRequest{
 		UserId: userId,
 		Score:  10,
