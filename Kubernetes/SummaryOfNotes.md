@@ -16,6 +16,7 @@
     视频地址：
         https://www.bilibili.com/video/BV1XY4y1t76G?p=83&vd_source=6122dea75af0b44c85ff18d196f1b32d
 
+
 壹.安装 Kubernetes 集群
 
     章节参考的博客地址：
@@ -26,13 +27,11 @@
         https://minikube.sigs.k8s.io/docs/commands/
     腾讯云官网：
         https://console.cloud.tencent.com/
-        
-
 
 
 贰.部署应用到集群中
-    
-    kubectl启动nginx应用
+
+    kubectl启动nginx应用（云平台搭建）（直接命令行运行的方式）
         部署命令：
             kubectl run nginx --image=nginx:latest
             kubectl get pod
@@ -44,7 +43,15 @@
             curl 127.0.0.1:80 或 curl 127.0.0.1
                 查看是否可以成功访问默认端口为80的nginx服务
             腾讯云平台点击当前的容器实例，选择 安全组/规则预览/入站规则/编辑规则/添加规则，配置开放80端口的防火墙，这样就可以使用公网进行访问了。
+    
+    章节参考地址：（配置文件运行的方式）
+        https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/puf7fjYr
 
+
+叁.Service
+    
+    章节参考地址：
+        https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/C0fakgwO
     
 
 
@@ -55,4 +62,4 @@
 
 
 
-
+零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾;
