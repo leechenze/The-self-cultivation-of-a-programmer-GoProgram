@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+data:
+  # mongoHost: mongodb-0.mongodb
+  mongoAddress: mongodb-0.mongodb:27017

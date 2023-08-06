@@ -9,6 +9,8 @@
 
 零.Kubernetes简介
     
+    Github地址:
+        https://github.com/gzyunke/test-k8s/tree/main
     博客地址：
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/9EX8Cp45
     视频地址：
@@ -74,9 +76,11 @@
 
     章节参考地址：
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/YJf8LMtE
-
+    缺失命令记录：
+        mongo --host mongdb-0.mongodb -u mongouser -p mongopass
 
 柒.Helm&命名空间
+    
     
     
 
