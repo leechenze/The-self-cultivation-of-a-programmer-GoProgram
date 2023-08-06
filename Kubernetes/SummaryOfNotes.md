@@ -52,6 +52,12 @@
     
     章节参考地址：
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/C0fakgwO
+
+
+肆.StatefulSet
+    
+    章节参考地址：
+        https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/mJvk9q5z
     
 
 
