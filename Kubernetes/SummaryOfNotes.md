@@ -81,7 +81,12 @@
 
 柒.Helm&命名空间
     
-    
+    Helm官网：
+        https://helm.sh/zh/
+    Helm应用中心：
+        https://artifacthub.io/
+    章节参考地址：
+        https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/3iQiyInr
     
 
 
