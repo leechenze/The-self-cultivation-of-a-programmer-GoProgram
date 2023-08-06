@@ -60,16 +60,25 @@
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/mJvk9q5z
 
 
-伍.数据持久化
+伍.数据持久化(Storage)
 
     章节参考地址：
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/Q2gBbjyW
+    缺失命令记录：
+        重启mongodb的statefulset的pod
+        kubectl rollout restart statefulset mongodb
+    sc, pvc, pv, statefulset配置都分开写了，写在一起也可以，在yaml中用---分割即可。
 
 
+陆.ConfigMap&Secret(配置文件和密码)
 
+    章节参考地址：
+        https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/YJf8LMtE
+
+
+柒.Helm&命名空间
     
     
-
 
 
 
