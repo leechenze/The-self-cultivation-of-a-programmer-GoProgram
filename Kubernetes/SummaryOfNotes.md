@@ -58,9 +58,17 @@
     
     章节参考地址：
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/mJvk9q5z
+
+
+伍.数据持久化
+
+    章节参考地址：
+        https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/Q2gBbjyW
+
+
+
     
-
-
+    
 
 
 
