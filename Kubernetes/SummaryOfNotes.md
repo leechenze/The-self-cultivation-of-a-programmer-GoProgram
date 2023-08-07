@@ -87,9 +87,12 @@
         https://artifacthub.io/
     章节参考地址：
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/3iQiyInr
+
+
+捌.Ingress
     
-
-
+    章节参考地址：
+        https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/JAxVnLJ5
 
 
 
