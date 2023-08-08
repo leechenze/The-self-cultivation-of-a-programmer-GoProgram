@@ -95,6 +95,3 @@
         https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/JAxVnLJ5
 
 
-
-
-零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾;
